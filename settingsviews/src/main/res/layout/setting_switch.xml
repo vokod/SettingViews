@@ -14,8 +14,8 @@
         tools:src="@drawable/ic_placeholder" />
 
     <TextView
-        android:id="@+id/tv_label"
-        style="@style/SettingLabel"
+        android:id="@+id/tv_title"
+        style="@style/SettingTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sw"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
         tools:text="description textview. It can be a longer text, multiple lines, lorem ipsum dolor sit amet" />
 
     <Switch

@@ -134,7 +134,7 @@ public class SwitchSetting extends ConstraintLayout {
 
     private void inflate() {
         LayoutInflater.from(getContext()).inflate(R.layout.setting_switch, this, true);
-        titleTextView = findViewById(R.id.tv_label);
+        titleTextView = findViewById(R.id.tv_title);
         descriptionTextView = findViewById(R.id.tv_desc);
         iconImageView = findViewById(R.id.iv_icon);
         aSwitch = findViewById(R.id.sw);

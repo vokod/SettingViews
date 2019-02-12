@@ -167,7 +167,7 @@ public class RadiogroupSetting extends ConstraintLayout {
 
     private void inflate() {
         LayoutInflater.from(getContext()).inflate(R.layout.setting_radiogroup, this, true);
-        labelTextView = findViewById(R.id.tv_label);
+        labelTextView = findViewById(R.id.tv_title);
         descriptionTextView = findViewById(R.id.tv_desc);
         iconImageView = findViewById(R.id.iv_icon);
         firstButton = findViewById(R.id.rb_one);

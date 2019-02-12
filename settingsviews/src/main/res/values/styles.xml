@@ -34,7 +34,7 @@
         <item name="android:contentDescription">@string/button_setting_icon_content_description</item>
     </style>
 
-    <style name="SettingLabel" parent="@android:style/TextAppearance.Medium">
+    <style name="SettingTitle" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/text</item>
         <item name="android:textStyle">normal</item>
@@ -47,7 +47,7 @@
         <item name="android:layout_marginBottom">4dp</item>
     </style>
 
-    <style name="SettingDescription" parent="@style/SettingLabel">
+    <style name="SettingDescription" parent="@style/SettingTitle">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text</item>
         <item name="android:textStyle">normal</item>

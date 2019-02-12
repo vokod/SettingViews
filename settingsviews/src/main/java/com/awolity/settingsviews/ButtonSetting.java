@@ -19,7 +19,7 @@ public class ButtonSetting extends ConstraintLayout {
 
     private static final String TAG = "ButtonSetting";
     private static final long ANIMATION_DURATION = 500;
-    private TextView labelTextView, descriptionTextView;
+    private TextView titleTextView, descriptionTextView;
     private ImageView iconImageView, checkmarkImageView;
     private FrameLayout clickOverlay;
     private boolean isCheckable;
@@ -60,7 +60,7 @@ public class ButtonSetting extends ConstraintLayout {
                     getResources().getColor(R.color.text));
             String label = a.getString(R.styleable.ButtonSetting_titleText);
             if (label != null) {
-                setLabelTextView(label, labelColor);
+                setTitleTextView(label, labelColor);
             }
 
             descriptionColor = a.getColor(R.styleable.ButtonSetting_descriptionTextColor,
@@ -80,7 +80,7 @@ public class ButtonSetting extends ConstraintLayout {
     }
 
     public void setTitle(String labelText) {
-        setLabelTextView(labelText, labelColor);
+        setTitleTextView(labelText, labelColor);
         //invalidateRequestLayout();
     }
 
@@ -118,7 +118,7 @@ public class ButtonSetting extends ConstraintLayout {
         setEnabled(isEnabled());
     }
 
-    public void setLabelTextColor(int color) {
+    public void setTitleTextColor(int color) {
         labelColor = color;
         setEnabled(isEnabled());
     }
@@ -138,7 +138,7 @@ public class ButtonSetting extends ConstraintLayout {
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         if (enabled) {
-            labelTextView.setTextColor(labelColor);
+            titleTextView.setTextColor(labelColor);
             descriptionTextView.setTextColor(descriptionColor);
             clickOverlay.setVisibility(View.VISIBLE);
             iconImageView.setAlpha(1f);
@@ -147,7 +147,7 @@ public class ButtonSetting extends ConstraintLayout {
             }
         } else {
             descriptionTextView.setTextColor(disabledColor);
-            labelTextView.setTextColor(disabledColor);
+            titleTextView.setTextColor(disabledColor);
             clickOverlay.setVisibility(View.GONE);
             iconImageView.setAlpha(0.5f);
             if (isCheckable) {
@@ -252,7 +252,7 @@ public class ButtonSetting extends ConstraintLayout {
 
     private void inflate() {
         LayoutInflater.from(getContext()).inflate(R.layout.setting_button, this, true);
-        labelTextView = findViewById(R.id.tv_label);
+        titleTextView = findViewById(R.id.tv_title);
         descriptionTextView = findViewById(R.id.tv_desc);
         iconImageView = findViewById(R.id.iv_icon);
         checkmarkImageView = findViewById(R.id.iv_checkmark);
@@ -285,9 +285,9 @@ public class ButtonSetting extends ConstraintLayout {
     private void setDescriptionTextView(String descriptionText, int color) {
         if (descriptionText == null) {
             descriptionTextView.setVisibility(View.GONE);
-            labelTextView.setPadding(labelTextView.getPaddingStart(),
+            titleTextView.setPadding(titleTextView.getPaddingStart(),
                     getInPx(getContext(), 12),
-                    labelTextView.getPaddingEnd(),
+                    titleTextView.getPaddingEnd(),
                     getInPx(getContext(), 12));
             return;
         }
@@ -299,12 +299,12 @@ public class ButtonSetting extends ConstraintLayout {
         }
     }
 
-    private void setLabelTextView(@NonNull String labelText, int color) {
-        labelTextView.setText(labelText);
+    private void setTitleTextView(@NonNull String labelText, int color) {
+        titleTextView.setText(labelText);
         if (isEnabled()) {
-            labelTextView.setTextColor(color);
+            titleTextView.setTextColor(color);
         } else {
-            labelTextView.setTextColor(disabledColor);
+            titleTextView.setTextColor(disabledColor);
         }
     }
 

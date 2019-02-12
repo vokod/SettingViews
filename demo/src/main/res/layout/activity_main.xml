@@ -140,6 +140,24 @@
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/ss"/>
 
+
+        <com.awolity.settingsviews.SeekbarSetting
+                android:id="@+id/es"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                custom:iconDrawableResource="@drawable/ic_1"
+                custom:titleText="Title text"
+                custom:descriptionText="Description text, a little longer, can be multiple lines, lorem ipsum dolor sit amet sálálálá"
+                custom:titleTextColor="@color/colorText"
+                custom:disabledColor="@color/colorDisabled"
+                custom:backgroundColor="@android:color/white"
+                custom:descriptionTextColor="@color/colorTextDark"
+                custom:max="100"
+                custom:progress="22"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/rs"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 

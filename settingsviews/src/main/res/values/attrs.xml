@@ -45,5 +45,17 @@
         <attr name="firstRadioButtonText" format="string" localization="suggested"/>
         <attr name="secondRadioButtonText" format="string" localization="suggested"/>
     </declare-styleable>
+
+    <declare-styleable name="SeekbarSetting">
+        <attr name="iconDrawableResource"/>
+        <attr name="disabledColor"/>
+        <attr name="titleText"/>
+        <attr name="settingTitleTextColor"/>
+        <attr name="descriptionText"/>
+        <attr name="descriptionTextColor"/>
+        <attr name="backgroundColor"/>
+        <attr name="max" format="integer"/>
+        <attr name="progress" format="integer"/>
+    </declare-styleable>
 </resources>
 

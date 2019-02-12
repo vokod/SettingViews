@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="ButtonSetting">
+        <attr name="iconDrawableResource"/>
+        <attr name="disabledColor"/>
+        <attr name="labelText"/>
+        <attr name="labelColor"/>
+        <attr name="descriptionText"/>
+        <attr name="descriptionColor"/>
+        <attr name="isCheckable"/>
+        <attr name="checkmarkDrawableResource"/>
+    </declare-styleable>
+
+    <declare-styleable name="MapSetting">
+        <attr name="iconDrawableResource"/>
+        <attr name="labelText"/>
+        <attr name="descriptionText"/>
+    </declare-styleable>
+
+    <declare-styleable name="SwitchSetting">
+        <attr name="iconDrawableResource"/>
+        <attr name="labelText"/>
+        <attr name="descriptionText"/>
+        <attr name="checked" format="boolean"/>
+    </declare-styleable>
+</resources>
+

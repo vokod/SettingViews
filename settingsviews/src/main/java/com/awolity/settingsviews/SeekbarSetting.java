@@ -19,8 +19,9 @@ public class SeekbarSetting extends ConstraintLayout {
     private TextView titleTextView, descriptionTextView;
     private ImageView iconImageView;
     private SeekBar seekBar;
-    private int disabledColor, titleColor, descriptionColor, backgroundColor;
+    private int disabledColor, titleTextColor, descriptionTextColor;
     private int seekbarMax, seekbarPosition;
+    private String exceptionText = "Position is bigger then max value";
 
     public SeekbarSetting(@NonNull Context context) {
         super(context);
@@ -30,132 +31,20 @@ public class SeekbarSetting extends ConstraintLayout {
     public SeekbarSetting(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         inflate();
-
-        TypedArray a = context.getTheme().obtainStyledAttributes(
-                attrs,
-                R.styleable.SeekbarSetting,
-                0, 0);
-
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SeekbarSetting, 0, 0);
         try {
-            seekbarMax = a.getInt(R.styleable.SeekbarSetting_max, 100);
-            seekbarPosition = a.getInt(R.styleable.SeekbarSetting_progress, 0);
-            setSeekBar(seekbarMax, seekbarPosition);
-
-
-            disabledColor = a.getColor(R.styleable.SeekbarSetting_disabledColor,
-                    getResources().getColor(R.color.disabled_text));
-            backgroundColor = a.getColor(R.styleable.SeekbarSetting_backgroundColor,
-                    getResources().getColor(android.R.color.white));
-            setBackgroundColor(backgroundColor);
-
-            int iconResource = a.getResourceId(R.styleable.SeekbarSetting_iconDrawableResource,
-                    R.drawable.ic_placeholder);
-            setIconImageView(iconResource);
-
-            titleColor = a.getColor(R.styleable.SeekbarSetting_settingTitleTextColor,
-                    getResources().getColor(R.color.text));
-            String title = a.getString(R.styleable.SeekbarSetting_titleText);
-            if (title != null) {
-                setTitleTextView(title, titleColor);
-            }
-
-            descriptionColor = a.getColor(R.styleable.SeekbarSetting_descriptionTextColor,
-                    getResources().getColor(R.color.text));
-            String description = a.getString(R.styleable.SeekbarSetting_descriptionText);
-            setDescriptionTextView(description, descriptionColor);
-
+            setColorsFromAttributes(a);
+            setIconFromAttributes(a);
+            setLabelsFromAttributes(a);
+            setSeekBarFromAttributes(a);
         } finally {
             a.recycle();
         }
     }
 
-    public SeekbarSetting(@NonNull Context context, @Nullable AttributeSet attrs,
-                          int defStyleAttr) {
+    public SeekbarSetting(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         inflate();
-    }
-
-    public void setTitle(String titleText) {
-        setTitleTextView(titleText, titleColor);
-        //invalidateRequestLayout();
-    }
-
-    public void setDescription(String descriptionText) {
-        setDescriptionTextView(descriptionText, descriptionColor);
-        //invalidateRequestLayout();
-    }
-
-    public void setIcon(int iconResource) {
-        setIconImageView(iconResource);
-        //invalidateRequestLayout();
-    }
-
-    public void setDisabledColor(int color) {
-        disabledColor = color;
-        setEnabled(isEnabled());
-    }
-
-    public void setTitleTextColor(int color) {
-        titleColor = color;
-        setEnabled(isEnabled());
-    }
-
-    @Override
-    public void setBackgroundColor(int color) {
-        this.backgroundColor = color;
-        super.setBackgroundColor(color);
-    }
-
-    @Override
-    public void setEnabled(boolean enabled) {
-        super.setEnabled(enabled);
-        seekBar.setEnabled(enabled);
-        if (enabled) {
-            titleTextView.setTextColor(titleColor);
-            descriptionTextView.setTextColor(descriptionColor);
-            iconImageView.setAlpha(1f);
-        } else {
-            descriptionTextView.setTextColor(disabledColor);
-            titleTextView.setTextColor(disabledColor);
-            iconImageView.setAlpha(0.5f);
-        }
-    }
-
-    public void setDescriptionColor(int color) {
-        descriptionColor = color;
-        setEnabled(isEnabled());
-    }
-
-    private void setSeekBar(int max, int pos, SeekBar.OnSeekBarChangeListener listener) {
-        seekBar.setMax(max);
-        seekBar.setProgress(pos);
-        seekBar.setOnSeekBarChangeListener(listener);
-    }
-
-    public void setSeekBar(int max, int position) {
-        if (position > max) {
-            throw new IllegalArgumentException("Position is bigger then max value");
-        }
-        seekbarPosition = position;
-        seekbarMax = max;
-        seekBar.setProgress(position);
-    }
-
-    public void setSeekBarPosition(int position) {
-        if (position > seekbarMax) {
-            throw new IllegalArgumentException("Position is bigger then max value");
-        }
-        seekbarPosition = position;
-        seekBar.setProgress(position);
-    }
-
-    public void setSeekBarListener(SeekBar.OnSeekBarChangeListener listener) {
-        seekBar.setOnSeekBarChangeListener(listener);
-    }
-
-    private void invalidateRequestLayout() {
-        invalidate();
-        requestLayout();
     }
 
     private void inflate() {
@@ -166,7 +55,50 @@ public class SeekbarSetting extends ConstraintLayout {
         seekBar = findViewById(R.id.seekbar);
     }
 
-    private void setDescriptionTextView(String descriptionText, int color) {
+    private void setColorsFromAttributes(TypedArray a) {
+        disabledColor = a.getColor(R.styleable.ButtonSetting_disabledColor,
+                getResources().getColor(R.color.disabled_text));
+
+        int backgroundColor = a.getColor(R.styleable.ButtonSetting_backgroundColor,
+                getResources().getColor(android.R.color.white));
+        setBackgroundColor(backgroundColor);
+
+        titleTextColor = a.getColor(R.styleable.ButtonSetting_settingTitleTextColor,
+                getResources().getColor(R.color.text));
+        titleTextView.setTextColor(titleTextColor);
+
+        descriptionTextColor = a.getColor(R.styleable.ButtonSetting_descriptionTextColor,
+                getResources().getColor(R.color.text));
+        descriptionTextView.setTextColor(descriptionTextColor);
+    }
+
+    private void setIconFromAttributes(TypedArray a) {
+        int iconResource = a.getResourceId(R.styleable.ButtonSetting_iconDrawableResource,
+                R.drawable.ic_placeholder);
+        setIcon(iconResource);
+    }
+
+    private void setLabelsFromAttributes(TypedArray a) {
+        String label = a.getString(R.styleable.ButtonSetting_titleText);
+        if (label != null) {
+            titleTextView.setText(label);
+        }
+
+        String description = a.getString(R.styleable.ButtonSetting_descriptionText);
+        setDescription(description);
+    }
+
+    private void setSeekBarFromAttributes(TypedArray a){
+        seekbarMax = a.getInt(R.styleable.SeekbarSetting_max, 100);
+        seekbarPosition = a.getInt(R.styleable.SeekbarSetting_progress, 0);
+        setSeekBar(seekbarMax, seekbarPosition);
+    }
+
+    public void setTitle(String titleText) {
+        titleTextView.setText(titleText);
+    }
+
+    public void setDescription(String descriptionText) {
         if (descriptionText == null) {
             descriptionTextView.setVisibility(View.GONE);
             titleTextView.setPadding(titleTextView.getPaddingStart(),
@@ -176,24 +108,66 @@ public class SeekbarSetting extends ConstraintLayout {
             return;
         }
         descriptionTextView.setText(descriptionText);
-        if (isEnabled()) {
-            descriptionTextView.setTextColor(color);
+    }
+
+    public void setIcon(int iconResource) {
+        iconImageView.setImageResource(iconResource);
+    }
+
+    public void setDisabledColor(int color) {
+        disabledColor = color;
+        setEnabled(isEnabled());
+    }
+
+    public void setTitleTextColor(int color) {
+        titleTextColor = color;
+        setEnabled(isEnabled());
+    }
+
+    public void setDescriptionColor(int color) {
+        descriptionTextColor = color;
+        setEnabled(isEnabled());
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        seekBar.setEnabled(enabled);
+        if (enabled) {
+            titleTextView.setTextColor(titleTextColor);
+            descriptionTextView.setTextColor(descriptionTextColor);
+            iconImageView.setAlpha(1f);
         } else {
             descriptionTextView.setTextColor(disabledColor);
-        }
-    }
-
-    private void setTitleTextView(@NonNull String labelText, int color) {
-        titleTextView.setText(labelText);
-        if (isEnabled()) {
-            titleTextView.setTextColor(color);
-        } else {
             titleTextView.setTextColor(disabledColor);
+            iconImageView.setAlpha(0.5f);
         }
     }
 
-    private void setIconImageView(int resourceId) {
-        iconImageView.setImageResource(resourceId);
+    public void setSeekBar(int max, int position) {
+        if (position > max) {
+            throw new IllegalArgumentException(exceptionText);
+        }
+        seekbarPosition = position;
+        seekbarMax = max;
+        seekBar.setProgress(position);
+    }
+
+    public void setSeekBar(int max, int position, SeekBar.OnSeekBarChangeListener listener) {
+        setSeekBar(max,position);
+        setSeekBarListener(listener);
+    }
+
+    public void setSeekBarPosition(int position) {
+        if (position > seekbarMax) {
+            throw new IllegalArgumentException(exceptionText);
+        }
+        seekbarPosition = position;
+        seekBar.setProgress(position);
+    }
+
+    public void setSeekBarListener(SeekBar.OnSeekBarChangeListener listener) {
+        seekBar.setOnSeekBarChangeListener(listener);
     }
 
     private static int getInPx(Context context, @SuppressWarnings("SameParameterValue") int dp) {

@@ -5,9 +5,9 @@
     <color name="colorAccent">#D81B60</color>
 
 
-    <color name="colorText">#008577</color>
-    <color name="colorTextDark">#00574B</color>
-    <color name="colorDisabled">#D81B60</color>
+    <color name="colorText">#555555</color>
+    <color name="colorTextDark">#000000</color>
+    <color name="colorDisabled">#888888</color>
     <color name="colorBg">#aaaaaa</color>
 
     <color name="grey">#888888</color>

@@ -24,16 +24,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        ss.setOnCheckedChangedListener{ _: CompoundButton, _: Boolean ->
+            Toast.makeText(this@MainActivity, "SwitchSetting switched: "+ ss.checked, Toast.LENGTH_LONG).show()
+        }
+
+        rs.setListener {
+            Toast.makeText(this@MainActivity, "RadioGroupSetting clicked. Selected radioButton: $it", Toast.LENGTH_LONG).show()
+        }
+
         btn_change_label.setOnClickListener {
-            bs.setLabel(Constants.labels[Random.nextInt(Constants.labels.size)])
+            bs.setTitle(Constants.titles[Random.nextInt(Constants.titles.size)])
+            ss.setTitle(Constants.titles[Random.nextInt(Constants.titles.size)])
+            rs.setTitle(Constants.titles[Random.nextInt(Constants.titles.size)])
         }
 
         btn_change_description.setOnClickListener {
             bs.setDescription(Constants.descriptions[Random.nextInt(Constants.descriptions.size)])
+            ss.setDescription(Constants.descriptions[Random.nextInt(Constants.descriptions.size)])
+            rs.setDescription(Constants.descriptions[Random.nextInt(Constants.descriptions.size)])
         }
 
         sw_enabled.setOnCheckedChangeListener { _: CompoundButton, _: Boolean ->
             bs.isEnabled = sw_enabled.isChecked
+            ss.isEnabled = sw_enabled.isChecked
+            rs.isEnabled = sw_enabled.isChecked
         }
 
         sw_checkable.setOnCheckedChangeListener { _: CompoundButton, _: Boolean ->
@@ -42,22 +56,32 @@ class MainActivity : AppCompatActivity() {
 
         btn_change_icon.setOnClickListener{
             bs.setIcon(Constants.icons[Random.nextInt(Constants.icons.size)])
+            ss.setIcon(Constants.icons[Random.nextInt(Constants.icons.size)])
+            rs.setIcon(Constants.icons[Random.nextInt(Constants.icons.size)])
         }
 
         btn_change_title_color.setOnClickListener{
-            bs.setLabelColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            bs.setLabelTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            ss.setTitleTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            rs.setTitleTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
 
         btn_change_description_color.setOnClickListener{
             bs.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            ss.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            rs.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
 
         btn_change_disabled_color.setOnClickListener{
             bs.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            ss.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            rs.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
 
         btn_change_background_color.setOnClickListener{
             bs.setBackgroundColor( resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            ss.setBackgroundColor( resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            rs.setBackgroundColor( resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
     }
 }

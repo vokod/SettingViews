@@ -11,39 +11,53 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_placeholder" />
+        tools:srcCompat="@drawable/ic_placeholder"/>
 
     <TextView
         android:id="@+id/tv_label"
         style="@style/SettingLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/sw"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="label textview" />
+        tools:text="label textview"/>
 
     <TextView
         android:id="@+id/tv_desc"
         style="@style/SettingDescription"
         android:layout_width="0dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sw"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_label"
-        tools:text="description textview. It can be a longer text, multiple lines, lorem ipsum dolor sit amet" />
+        tools:text="description textview. It can be a longer text, multiple lines, lorem ipsum dolor sit amet"/>
 
-    <Switch
-        android:id="@+id/sw"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioButton
+            android:id="@+id/rb_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/rb_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="RadioButton" />
+    </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

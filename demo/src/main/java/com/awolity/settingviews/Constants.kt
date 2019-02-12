@@ -2,7 +2,7 @@ package com.awolity.settingviews
 
 class Constants {
     companion object {
-        val labels = arrayOf("Label 1", "Label 2", "Label 3", " 4. label")
+        val titles = arrayOf("Title 1", "Title 2", "Title 3", " 4. Title")
         val descriptions = arrayOf(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
             "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",

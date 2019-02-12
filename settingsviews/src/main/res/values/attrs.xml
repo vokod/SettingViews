@@ -1,28 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <attr name="iconDrawableResource" format="reference"/>
+    <attr name="disabledColor" format="color"/>
+    <attr name="titleText" format="string" localization="suggested"/>
+    <attr name="settingTitleTextColor" format="color"/>
+    <attr name="descriptionText" format="string" localization="suggested"/>
+    <attr name="descriptionTextColor" format="color"/>
+    <attr name="backgroundColor" format="color"/>
+    <attr name="checked" format="boolean"/>
 
     <declare-styleable name="ButtonSetting">
-        <attr name="iconDrawableResource" format="reference"/>
-        <attr name="disabledColor" format="color"/>
-        <attr name="labelText" format="string" localization="suggested"/>
-        <attr name="labelColor" format="color"/>
-        <attr name="descriptionText" format="string" localization="suggested"/>
-        <attr name="descriptionColor" format="color"/>
-        <attr name="backgroundColor" format="color"/>
+        <attr name="iconDrawableResource"/>
+        <attr name="disabledColor"/>
+        <attr name="titleText"/>
+        <attr name="settingTitleTextColor"/>
+        <attr name="descriptionText"/>
+        <attr name="descriptionTextColor"/>
+        <attr name="backgroundColor"/>
         <attr name="isCheckable" format="boolean"/>
         <attr name="checkmarkDrawableResource" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="SwitchSetting">
         <attr name="iconDrawableResource"/>
-        <attr name="disabledColor" format="color"/>
-        <attr name="labelText"/>
-        <attr name="labelColor" format="color"/>
+        <attr name="disabledColor"/>
+        <attr name="titleText"/>
+        <attr name="settingTitleTextColor"/>
         <attr name="descriptionText"/>
-        <attr name="descriptionColor" format="color"/>
-        <attr name="backgroundColor" format="color"/>
-        <attr name="checked" format="boolean"/>
+        <attr name="descriptionTextColor"/>
+        <attr name="backgroundColor"/>
+        <attr name="checked"/>
+    </declare-styleable>
+
+    <declare-styleable name="RadiogroupSetting">
+        <attr name="iconDrawableResource"/>
+        <attr name="disabledColor"/>
+        <attr name="titleText"/>
+        <attr name="settingTitleTextColor"/>
+        <attr name="descriptionText"/>
+        <attr name="descriptionTextColor"/>
+        <attr name="backgroundColor"/>
+        <attr name="firstRadioButtonSelected" format="boolean"/>
+        <attr name="radioButtonLabelTextColor" format="color"/>
+        <attr name="firstRadioButtonText" format="string" localization="suggested"/>
+        <attr name="secondRadioButtonText" format="string" localization="suggested"/>
     </declare-styleable>
 </resources>
 

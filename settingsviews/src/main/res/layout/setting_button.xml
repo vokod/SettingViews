@@ -8,7 +8,7 @@
 
     <ImageView
             android:id="@+id/iv_icon"
-            style="@style/SettingButtonIcon"
+            style="@style/SettingIcon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -16,14 +16,14 @@
 
     <TextView
             android:id="@+id/tv_label"
-            style="@style/SettingButtonLabel"
+            style="@style/SettingLabel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="label textview"/>
 
     <TextView
             android:id="@+id/tv_desc"
-            style="@style/SettingButtonDescription"
+            style="@style/SettingDescription"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/iv_checkmark"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
     <ImageView
             android:id="@+id/iv_checkmark"
             style="@style/SettingButtonCheckmark"
-            android:src="@drawable/ic_check_circle_black"
+            android:src="@drawable/ic_check_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_desc"

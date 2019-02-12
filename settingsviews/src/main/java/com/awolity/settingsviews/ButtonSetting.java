@@ -15,9 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-// TODO: background color
-// TODO: enabled
-
 public class ButtonSetting extends ConstraintLayout {
 
     private static final String TAG = "ButtonSetting";
@@ -52,21 +49,21 @@ public class ButtonSetting extends ConstraintLayout {
 
             isCheckable = a.getBoolean(R.styleable.ButtonSetting_isCheckable, false);
             int checkmarkIconResource = a.getResourceId(R.styleable.ButtonSetting_checkmarkDrawableResource,
-                    R.drawable.ic_check_circle_black);
+                    R.drawable.ic_check_black);
             setCheckmark(isCheckable, checkmarkIconResource);
 
             int iconResource = a.getResourceId(R.styleable.ButtonSetting_iconDrawableResource,
                     R.drawable.ic_placeholder);
             setIconImageView(iconResource);
 
-            labelColor = a.getColor(R.styleable.ButtonSetting_labelColor,
+            labelColor = a.getColor(R.styleable.ButtonSetting_settingTitleTextColor,
                     getResources().getColor(R.color.text));
-            String label = a.getString(R.styleable.ButtonSetting_labelText);
+            String label = a.getString(R.styleable.ButtonSetting_titleText);
             if (label != null) {
                 setLabelTextView(label, labelColor);
             }
 
-            descriptionColor = a.getColor(R.styleable.ButtonSetting_descriptionColor,
+            descriptionColor = a.getColor(R.styleable.ButtonSetting_descriptionTextColor,
                     getResources().getColor(R.color.text));
             String description = a.getString(R.styleable.ButtonSetting_descriptionText);
             setDescriptionTextView(description, descriptionColor);
@@ -82,7 +79,7 @@ public class ButtonSetting extends ConstraintLayout {
         inflate();
     }
 
-    public void setLabel(String labelText) {
+    public void setTitle(String labelText) {
         setLabelTextView(labelText, labelColor);
         //invalidateRequestLayout();
     }
@@ -94,6 +91,7 @@ public class ButtonSetting extends ConstraintLayout {
 
     public void setIcon(int iconResource) {
         setIconImageView(iconResource);
+        //invalidateRequestLayout();
     }
 
     public void setCheckmarkIcon(int iconResource) {
@@ -120,7 +118,7 @@ public class ButtonSetting extends ConstraintLayout {
         setEnabled(isEnabled());
     }
 
-    public void setLabelColor(int color) {
+    public void setLabelTextColor(int color) {
         labelColor = color;
         setEnabled(isEnabled());
     }

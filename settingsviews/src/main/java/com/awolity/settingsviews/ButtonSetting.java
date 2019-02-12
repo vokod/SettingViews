@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -15,6 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+// TODO: background color
+// TODO: enabled
+
 public class ButtonSetting extends ConstraintLayout {
 
     private static final String TAG = "ButtonSetting";
@@ -23,7 +27,7 @@ public class ButtonSetting extends ConstraintLayout {
     private ImageView iconImageView, checkmarkImageView;
     private FrameLayout clickOverlay;
     private boolean isCheckable;
-    private int disabledColor, labelColor, descriptionColor;
+    private int disabledColor, labelColor, descriptionColor, backgroundColor;
 
     public ButtonSetting(@NonNull Context context) {
         super(context);
@@ -40,13 +44,12 @@ public class ButtonSetting extends ConstraintLayout {
                 0, 0);
 
         try {
-
             disabledColor = a.getColor(R.styleable.ButtonSetting_disabledColor,
                     getResources().getColor(R.color.disabled_text));
-            labelColor = a.getColor(R.styleable.ButtonSetting_labelColor,
-                    getResources().getColor(R.color.text));
-            descriptionColor = a.getColor(R.styleable.ButtonSetting_descriptionColor,
-                    getResources().getColor(R.color.text));
+            backgroundColor = a.getColor(R.styleable.ButtonSetting_backgroundColor,
+                    getResources().getColor(android.R.color.white));
+            setBackgroundColor(backgroundColor);
+
 
             isCheckable = a.getBoolean(R.styleable.ButtonSetting_isCheckable, false);
             int checkmarkIconResource = a.getResourceId(R.styleable.ButtonSetting_checkmarkDrawableResource,
@@ -57,11 +60,15 @@ public class ButtonSetting extends ConstraintLayout {
                     R.drawable.ic_placeholder);
             setIconImageView(iconResource);
 
+            labelColor = a.getColor(R.styleable.ButtonSetting_labelColor,
+                    getResources().getColor(R.color.text));
             String label = a.getString(R.styleable.ButtonSetting_labelText);
             if (label != null) {
                 setLabelTextView(label, labelColor);
             }
 
+            descriptionColor = a.getColor(R.styleable.ButtonSetting_descriptionColor,
+                    getResources().getColor(R.color.text));
             String description = a.getString(R.styleable.ButtonSetting_descriptionText);
             setDescriptionTextView(description, descriptionColor);
 
@@ -102,35 +109,48 @@ public class ButtonSetting extends ConstraintLayout {
         invalidateRequestLayout();
     }
 
+    public boolean isCheckable() {
+        return isCheckable;
+    }
+
+    public boolean getChecked() {
+        return checkmarkImageView.getVisibility() == VISIBLE;
+    }
+
     public void setDisabledColor(int color) {
         disabledColor = color;
-        invalidateRequestLayout();
+        setEnabled(isEnabled());
     }
 
     public void setLabelColor(int color) {
         labelColor = color;
-        invalidateRequestLayout();
+        setEnabled(isEnabled());
     }
 
     public void setDescriptionColor(int color) {
         descriptionColor = color;
-        invalidateRequestLayout();
+        setEnabled(isEnabled());
+    }
+
+    public void setBackgroundColor(int color) {
+        this.backgroundColor = color;
+        super.setBackgroundColor(color);
     }
 
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         if (enabled) {
-            labelTextView.setTextColor(getContext().getResources().getColor(R.color.text));
-            descriptionTextView.setTextColor(getContext().getResources().getColor(R.color.text));
+            labelTextView.setTextColor(labelColor);
+            descriptionTextView.setTextColor(descriptionColor);
             clickOverlay.setVisibility(View.VISIBLE);
             iconImageView.setAlpha(1f);
             if (isCheckable) {
                 checkmarkImageView.setAlpha(1f);
             }
         } else {
-            descriptionTextView.setTextColor(getContext().getResources().getColor(R.color.disabled_text));
-            labelTextView.setTextColor(getContext().getResources().getColor(R.color.disabled_text));
+            descriptionTextView.setTextColor(disabledColor);
+            labelTextView.setTextColor(disabledColor);
             clickOverlay.setVisibility(View.GONE);
             iconImageView.setAlpha(0.5f);
             if (isCheckable) {
@@ -275,7 +295,7 @@ public class ButtonSetting extends ConstraintLayout {
             return;
         }
         descriptionTextView.setText(descriptionText);
-        if(isEnabled()) {
+        if (isEnabled()) {
             descriptionTextView.setTextColor(color);
         } else {
             descriptionTextView.setTextColor(disabledColor);
@@ -284,7 +304,7 @@ public class ButtonSetting extends ConstraintLayout {
 
     private void setLabelTextView(@NonNull String labelText, int color) {
         labelTextView.setText(labelText);
-        if(isEnabled()) {
+        if (isEnabled()) {
             labelTextView.setTextColor(color);
         } else {
             labelTextView.setTextColor(disabledColor);

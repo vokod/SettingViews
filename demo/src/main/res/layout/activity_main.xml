@@ -29,15 +29,18 @@
             android:id="@+id/sw_enabled"
             app:layout_constraintTop_toTopOf="@+id/btn_change_label"
             app:layout_constraintBottom_toBottomOf="@+id/btn_change_label" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="8dp"
+            android:checked="true"/>
     <Switch
-            android:text="Switch"
+            android:text="Checkable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/switch2"
+            android:id="@+id/sw_checkable"
             app:layout_constraintTop_toTopOf="@+id/btn_change_description"
             app:layout_constraintBottom_toBottomOf="@+id/btn_change_description"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:checked="true"/>
 
     <com.awolity.settingsviews.ButtonSetting
             android:id="@+id/bs"
@@ -47,12 +50,54 @@
             custom:iconDrawableResource="@drawable/ic_1"
             custom:disabledColor="@color/colorDisabled"
             custom:labelColor="@color/colorText"
+            custom:backgroundColor="@color/colorBg"
             custom:descriptionColor="@color/colorTextDark"
             custom:labelText="Label text"
             custom:descriptionText="Description text, a little longer, can be multiple lines, lorem ipsum dolor sit amet sálálálá"
             custom:isCheckable="true"
-            app:layout_constraintTop_toBottomOf="@+id/btn_change_description"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change_disabled_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:text="Change Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_change_icon" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/btn_change_description"/>
+    <Button
+            android:text="Title color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_change_title_color"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"/>
+    <Button
+            android:text="Description color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_change_description_color"
+
+            app:layout_constraintTop_toTopOf="@+id/btn_change_title_color" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
+    <Button
+            android:text="Disabled color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_change_disabled_color"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change_title_color"/>
+    <Button
+            android:text="Backgrund color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_change_background_color"
+            app:layout_constraintTop_toTopOf="@+id/btn_change_disabled_color" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

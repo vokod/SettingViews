@@ -8,4 +8,10 @@
     <color name="colorText">#008577</color>
     <color name="colorTextDark">#00574B</color>
     <color name="colorDisabled">#D81B60</color>
+    <color name="colorBg">#aaaaaa</color>
+
+    <color name="grey">#888888</color>
+    <color name="red">#880000</color>
+    <color name="green">#008800</color>
+    <color name="blue">#000088</color>
 </resources>

@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -85,28 +84,27 @@ public class ButtonSetting extends ConstraintLayout {
 
     public void setLabel(String labelText) {
         setLabelTextView(labelText, labelColor);
-        invalidateRequestLayout();
+        //invalidateRequestLayout();
     }
 
     public void setDescription(String descriptionText) {
         setDescriptionTextView(descriptionText, descriptionColor);
-        invalidateRequestLayout();
+        //invalidateRequestLayout();
     }
 
     public void setIcon(int iconResource) {
         setIconImageView(iconResource);
-        invalidateRequestLayout();
     }
 
     public void setCheckmarkIcon(int iconResource) {
         setCheckmark(isCheckable, iconResource);
-        invalidateRequestLayout();
+        //invalidateRequestLayout();
     }
 
     public void setCheckable(boolean checkable) {
         isCheckable = checkable;
         setCheckmark(checkable);
-        invalidateRequestLayout();
+       // invalidateRequestLayout();
     }
 
     public boolean isCheckable() {
@@ -132,6 +130,7 @@ public class ButtonSetting extends ConstraintLayout {
         setEnabled(isEnabled());
     }
 
+    @Override
     public void setBackgroundColor(int color) {
         this.backgroundColor = color;
         super.setBackgroundColor(color);
@@ -313,10 +312,6 @@ public class ButtonSetting extends ConstraintLayout {
 
     private void setIconImageView(int resourceId) {
         iconImageView.setImageResource(resourceId);
-    }
-
-    private void setCheckmarkImageView(int resourceId) {
-        checkmarkImageView.setImageResource(resourceId);
     }
 
     private static int getInPx(Context context, @SuppressWarnings("SameParameterValue") int dp) {

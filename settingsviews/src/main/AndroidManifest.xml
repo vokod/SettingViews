@@ -3,6 +3,9 @@
           package="com.awolity.settingsviews">
 
     <application>
+        <activity android:name="com.awolity.setingsviews.MockActivity"
+                  android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

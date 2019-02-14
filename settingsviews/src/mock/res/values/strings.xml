@@ -1,6 +1,0 @@
-<resources>
-    <string name="test_title">Title text</string>
-    <string name="test_description">Description text, a little longer, can be multiple lines, lorem ipsum dolor sit amet
-        sálálálá
-    </string>
-</resources>

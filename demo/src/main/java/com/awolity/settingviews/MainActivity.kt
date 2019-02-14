@@ -26,9 +26,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        ss.setOnCheckedChangedListener{ _: CompoundButton, _: Boolean ->
-            Toast.makeText(this@MainActivity, "SwitchSetting switched: "+ ss.checked, Toast.LENGTH_LONG).show()
-        }
+        ss.setOnCheckedChangedListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+            Toast.makeText(this@MainActivity, "SwitchSetting switched: $isChecked", Toast.LENGTH_LONG).show() })
 
         rs.setListener(object: RadiogroupSetting.RadiogroupSettingListener{
             override fun OnRadioButtonClicked(selected: Int) {

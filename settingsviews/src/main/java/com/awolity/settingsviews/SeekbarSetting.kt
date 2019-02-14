@@ -77,7 +77,7 @@ class SeekbarSetting : ConstraintLayout {
     private fun setIconFromAttributes(a: TypedArray) {
         val iconResource = a.getResourceId(
             R.styleable.SeekbarSetting_iconDrawableResource,
-            R.drawable.ic_placeholder
+            R.drawable.ic_android
         )
         setIcon(iconResource)
     }

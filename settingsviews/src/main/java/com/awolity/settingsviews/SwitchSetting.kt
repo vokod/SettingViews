@@ -80,7 +80,7 @@ class SwitchSetting : ConstraintLayout {
     private fun setIconFromAttributes(a: TypedArray) {
         val iconResource = a.getResourceId(
             R.styleable.SwitchSetting_iconDrawableResource,
-            R.drawable.ic_placeholder
+            R.drawable.ic_android
         )
         setIcon(iconResource)
     }

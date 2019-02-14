@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.awolity.settingsviews.ButtonSetting
+            android:id="@+id/bs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:titleText="@string/test_title"
+            custom:descriptionText="@string/test_description"
+            custom:iconDrawableResource="@drawable/ic_android"
+            custom:disabledColor="@color/text_disabled"
+            custom:titleTextColor="@color/text_dark"
+            custom:descriptionTextColor="@color/text"
+            custom:isCheckable="true"/>
+</LinearLayout>

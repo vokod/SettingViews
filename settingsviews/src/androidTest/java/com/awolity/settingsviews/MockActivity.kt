@@ -1,4 +1,4 @@
-package com.awolity.setingsviews
+package com.awolity.settingsviews
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

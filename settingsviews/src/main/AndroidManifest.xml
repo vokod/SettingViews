@@ -3,7 +3,7 @@
           package="com.awolity.settingsviews">
 
     <application>
-        <activity android:name="com.awolity.setingsviews.MockActivity"
+        <activity android:name="com.awolity.settingsviews.MockActivity"
                   android:theme="@style/AppTheme" >
         </activity>
     </application>

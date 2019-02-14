@@ -3,20 +3,18 @@
     <attr name="iconDrawableResource" format="reference"/>
     <attr name="disabledColor" format="color"/>
     <attr name="titleText" format="string" localization="suggested"/>
-    <attr name="settingTitleTextColor" format="color"/>
+    <attr name="titleTextColor" format="color"/>
     <attr name="descriptionText" format="string" localization="suggested"/>
     <attr name="descriptionTextColor" format="color"/>
-    <attr name="backgroundColor" format="color"/>
     <attr name="checked" format="boolean"/>
 
     <declare-styleable name="ButtonSetting">
         <attr name="iconDrawableResource"/>
         <attr name="disabledColor"/>
         <attr name="titleText"/>
-        <attr name="settingTitleTextColor"/>
+        <attr name="titleTextColor"/>
         <attr name="descriptionText"/>
         <attr name="descriptionTextColor"/>
-        <attr name="backgroundColor"/>
         <attr name="isCheckable" format="boolean"/>
         <attr name="checkmarkDrawableResource" format="reference"/>
     </declare-styleable>
@@ -25,10 +23,9 @@
         <attr name="iconDrawableResource"/>
         <attr name="disabledColor"/>
         <attr name="titleText"/>
-        <attr name="settingTitleTextColor"/>
+        <attr name="titleTextColor"/>
         <attr name="descriptionText"/>
         <attr name="descriptionTextColor"/>
-        <attr name="backgroundColor"/>
         <attr name="checked"/>
     </declare-styleable>
 
@@ -36,10 +33,9 @@
         <attr name="iconDrawableResource"/>
         <attr name="disabledColor"/>
         <attr name="titleText"/>
-        <attr name="settingTitleTextColor"/>
+        <attr name="titleTextColor"/>
         <attr name="descriptionText"/>
         <attr name="descriptionTextColor"/>
-        <attr name="backgroundColor"/>
         <attr name="firstRadioButtonSelected" format="boolean"/>
         <attr name="radioButtonLabelTextColor" format="color"/>
         <attr name="firstRadioButtonText" format="string" localization="suggested"/>
@@ -50,10 +46,9 @@
         <attr name="iconDrawableResource"/>
         <attr name="disabledColor"/>
         <attr name="titleText"/>
-        <attr name="settingTitleTextColor"/>
+        <attr name="titleTextColor"/>
         <attr name="descriptionText"/>
         <attr name="descriptionTextColor"/>
-        <attr name="backgroundColor"/>
         <attr name="max" format="integer"/>
         <attr name="progress" format="integer"/>
     </declare-styleable>

@@ -81,17 +81,11 @@ class ButtonSetting : ConstraintLayout {
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledColor = a.getColor(
             R.styleable.ButtonSetting_disabledColor,
-            resources.getColor(R.color.disabled_text)
+            resources.getColor(R.color.text_disabled)
         )
-
-        val backgroundColor = a.getColor(
-            R.styleable.ButtonSetting_backgroundColor,
-            resources.getColor(android.R.color.white)
-        )
-        setBackgroundColor(backgroundColor)
 
         titleTextColor = a.getColor(
-            R.styleable.ButtonSetting_settingTitleTextColor,
+            R.styleable.ButtonSetting_titleTextColor,
             resources.getColor(R.color.text)
         )
         titleTextView!!.setTextColor(titleTextColor)

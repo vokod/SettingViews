@@ -56,35 +56,31 @@ public class SeekbarSetting extends ConstraintLayout {
     }
 
     private void setColorsFromAttributes(TypedArray a) {
-        disabledColor = a.getColor(R.styleable.ButtonSetting_disabledColor,
-                getResources().getColor(R.color.disabled_text));
+        disabledColor = a.getColor(R.styleable.SeekbarSetting_disabledColor,
+                getResources().getColor(R.color.text_disabled));
 
-        int backgroundColor = a.getColor(R.styleable.ButtonSetting_backgroundColor,
-                getResources().getColor(android.R.color.white));
-        setBackgroundColor(backgroundColor);
-
-        titleTextColor = a.getColor(R.styleable.ButtonSetting_settingTitleTextColor,
+        titleTextColor = a.getColor(R.styleable.SeekbarSetting_titleTextColor,
                 getResources().getColor(R.color.text));
         titleTextView.setTextColor(titleTextColor);
 
-        descriptionTextColor = a.getColor(R.styleable.ButtonSetting_descriptionTextColor,
+        descriptionTextColor = a.getColor(R.styleable.SeekbarSetting_descriptionTextColor,
                 getResources().getColor(R.color.text));
         descriptionTextView.setTextColor(descriptionTextColor);
     }
 
     private void setIconFromAttributes(TypedArray a) {
-        int iconResource = a.getResourceId(R.styleable.ButtonSetting_iconDrawableResource,
+        int iconResource = a.getResourceId(R.styleable.SeekbarSetting_iconDrawableResource,
                 R.drawable.ic_placeholder);
         setIcon(iconResource);
     }
 
     private void setLabelsFromAttributes(TypedArray a) {
-        String label = a.getString(R.styleable.ButtonSetting_titleText);
+        String label = a.getString(R.styleable.SeekbarSetting_titleText);
         if (label != null) {
             titleTextView.setText(label);
         }
 
-        String description = a.getString(R.styleable.ButtonSetting_descriptionText);
+        String description = a.getString(R.styleable.SeekbarSetting_descriptionText);
         setDescription(description);
     }
 

@@ -18,7 +18,7 @@ public class SwitchSetting extends ConstraintLayout {
     private TextView titleTextView, descriptionTextView;
     private ImageView iconImageView;
     private Switch aSwitch;
-    private int disabledColor, titleTextColor, descriptionColor, backgroundColor;
+    private int disabledColor, titleTextColor, descriptionColor;
 
     public SwitchSetting(@NonNull Context context) {
         super(context);
@@ -36,16 +36,13 @@ public class SwitchSetting extends ConstraintLayout {
 
         try {
             disabledColor = a.getColor(R.styleable.SwitchSetting_disabledColor,
-                    getResources().getColor(R.color.disabled_text));
-            backgroundColor = a.getColor(R.styleable.SwitchSetting_backgroundColor,
-                    getResources().getColor(android.R.color.white));
-            setBackgroundColor(backgroundColor);
+                    getResources().getColor(R.color.text_disabled));
 
             int iconResource = a.getResourceId(R.styleable.SwitchSetting_iconDrawableResource,
                     R.drawable.ic_placeholder);
             setIconImageView(iconResource);
 
-            titleTextColor = a.getColor(R.styleable.SwitchSetting_settingTitleTextColor,
+            titleTextColor = a.getColor(R.styleable.SwitchSetting_titleTextColor,
                     getResources().getColor(R.color.text));
             String labelText = a.getString(R.styleable.SwitchSetting_titleText);
             if (labelText != null) {
@@ -97,12 +94,6 @@ public class SwitchSetting extends ConstraintLayout {
     public void setDescriptionColor(int color) {
         descriptionColor = color;
         setEnabled(isEnabled());
-    }
-
-    @Override
-    public void setBackgroundColor(int color) {
-        this.backgroundColor = color;
-        super.setBackgroundColor(color);
     }
 
     @Override

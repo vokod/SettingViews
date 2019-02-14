@@ -18,7 +18,7 @@ public class RadiogroupSetting extends ConstraintLayout {
     private TextView labelTextView, descriptionTextView;
     private ImageView iconImageView;
     private RadioButton firstButton, secondButton;
-    private int disabledColor, titleColor, descriptionColor, backgroundColor, radioButtonLabelColor;
+    private int disabledColor, titleColor, descriptionColor,  radioButtonLabelColor;
 
     public RadiogroupSetting(@NonNull Context context) {
         super(context);
@@ -36,16 +36,13 @@ public class RadiogroupSetting extends ConstraintLayout {
 
         try {
             disabledColor = a.getColor(R.styleable.RadiogroupSetting_disabledColor,
-                    getResources().getColor(R.color.disabled_text));
-            backgroundColor = a.getColor(R.styleable.RadiogroupSetting_backgroundColor,
-                    getResources().getColor(android.R.color.white));
-            setBackgroundColor(backgroundColor);
+                    getResources().getColor(R.color.text_disabled));
 
             int iconResource = a.getResourceId(R.styleable.RadiogroupSetting_iconDrawableResource,
                     R.drawable.ic_placeholder);
             setIconImageView(iconResource);
 
-            titleColor = a.getColor(R.styleable.RadiogroupSetting_settingTitleTextColor,
+            titleColor = a.getColor(R.styleable.RadiogroupSetting_titleTextColor,
                     getResources().getColor(R.color.text));
             String label = a.getString(R.styleable.RadiogroupSetting_titleText);
             if (label != null) {
@@ -136,12 +133,6 @@ public class RadiogroupSetting extends ConstraintLayout {
     public void setDescriptionColor(int color) {
         descriptionColor = color;
         setEnabled(isEnabled());
-    }
-
-    @Override
-    public void setBackgroundColor(int color) {
-        this.backgroundColor = color;
-        super.setBackgroundColor(color);
     }
 
     @Override

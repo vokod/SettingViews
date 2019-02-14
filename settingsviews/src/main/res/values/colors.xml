@@ -4,10 +4,11 @@
 
     <color name="primary">#9E9E9E</color>
     <color name="primary_dark">#616161</color>
-    <color name="background">#ffffff</color>
     <color name="accent">#00BCD4</color>
 
     <color name="text">#222</color>
-    <color name="disabled_text">#888888</color>
+    <color name="text_disabled">#888888</color>
+    <color name="text_dark">#000000</color>
+    <color name="bg">#cccccc</color>
 
 </resources>

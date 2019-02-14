@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             bs.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
             ss.setDescriptionTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
             rs.setDescriptionTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            es.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            es.setDescriptionTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
 
         btn_change_disabled_color.setOnClickListener{

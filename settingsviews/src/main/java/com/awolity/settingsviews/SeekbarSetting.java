@@ -2,6 +2,7 @@ package com.awolity.settingsviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +20,7 @@ public class SeekbarSetting extends ConstraintLayout {
     private TextView titleTextView, descriptionTextView;
     private ImageView iconImageView;
     private SeekBar seekBar;
-    private int disabledTextColor, titleTextColor, descriptionTextColor;
-    private int seekbarMax, seekbarPosition;
+    private int disabledTextColor, titleTextColor, descriptionTextColor, max, position;
     private String exceptionText = "Position is bigger then max value";
 
     public SeekbarSetting(@NonNull Context context) {
@@ -84,10 +84,10 @@ public class SeekbarSetting extends ConstraintLayout {
         setDescription(description);
     }
 
-    private void setSeekBarFromAttributes(TypedArray a){
-        seekbarMax = a.getInt(R.styleable.SeekbarSetting_max, 100);
-        seekbarPosition = a.getInt(R.styleable.SeekbarSetting_progress, 0);
-        setSeekBar(seekbarMax, seekbarPosition);
+    private void setSeekBarFromAttributes(TypedArray a) {
+        max = a.getInt(R.styleable.SeekbarSetting_max, 100);
+        position = a.getInt(R.styleable.SeekbarSetting_progress, 0);
+        setSeekBar(max, position);
     }
 
     public void setTitle(String titleText) {
@@ -120,7 +120,7 @@ public class SeekbarSetting extends ConstraintLayout {
         setEnabled(isEnabled());
     }
 
-    public void setDescriptionColor(int color) {
+    public void setDescriptionTextColor(int color) {
         descriptionTextColor = color;
         setEnabled(isEnabled());
     }
@@ -144,21 +144,21 @@ public class SeekbarSetting extends ConstraintLayout {
         if (position > max) {
             throw new IllegalArgumentException(exceptionText);
         }
-        seekbarPosition = position;
-        seekbarMax = max;
+        this.position = position;
+        this.max = max;
         seekBar.setProgress(position);
     }
 
     public void setSeekBar(int max, int position, SeekBar.OnSeekBarChangeListener listener) {
-        setSeekBar(max,position);
+        setSeekBar(max, position);
         setSeekBarListener(listener);
     }
 
     public void setSeekBarPosition(int position) {
-        if (position > seekbarMax) {
+        if (position > max) {
             throw new IllegalArgumentException(exceptionText);
         }
-        seekbarPosition = position;
+        this.position = position;
         seekBar.setProgress(position);
     }
 
@@ -169,5 +169,27 @@ public class SeekbarSetting extends ConstraintLayout {
     private static int getInPx(Context context, @SuppressWarnings("SameParameterValue") int dp) {
         float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable superState = super.onSaveInstanceState();
+        SeekbarSettingSavedState ss = new SeekbarSettingSavedState(superState);
+        ss.setDescriptionColorValue(descriptionTextColor);
+        ss.setDisabledColorValue(disabledTextColor);
+        ss.setTitleColorValue(titleTextColor);
+        ss.setMax(max);
+        ss.setPosition(position);
+        return ss;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        SeekbarSettingSavedState ss = (SeekbarSettingSavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setDescriptionTextColor(ss.getDescriptionColorValue());
+        setDisabledTextColor(ss.getDisabledColorValue());
+        setTitleTextColor(ss.getTitleColorValue());
+        setSeekBar(ss.getMax(), ss.getPosition());
     }
 }

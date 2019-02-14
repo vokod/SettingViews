@@ -86,16 +86,16 @@ class MainActivity : AppCompatActivity() {
 
         btn_change_description_color.setOnClickListener{
             bs.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            ss.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            rs.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            ss.setDescriptionTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            rs.setDescriptionTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
             es.setDescriptionColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
 
         btn_change_disabled_color.setOnClickListener{
             bs.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            ss.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            rs.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            es.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            ss.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            rs.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            es.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
 
         btn_change_background_color.setOnClickListener{

@@ -18,7 +18,7 @@ public class SwitchSetting extends ConstraintLayout {
     private TextView titleTextView, descriptionTextView;
     private ImageView iconImageView;
     private Switch aSwitch;
-    private int disabledColor, titleTextColor, descriptionColor;
+    private int disabledTextColor, titleTextColor, descriptionTextColor;
 
     public SwitchSetting(@NonNull Context context) {
         super(context);
@@ -35,7 +35,7 @@ public class SwitchSetting extends ConstraintLayout {
                 0, 0);
 
         try {
-            disabledColor = a.getColor(R.styleable.SwitchSetting_disabledColor,
+            disabledTextColor = a.getColor(R.styleable.SwitchSetting_disabledColor,
                     getResources().getColor(R.color.text_disabled));
 
             int iconResource = a.getResourceId(R.styleable.SwitchSetting_iconDrawableResource,
@@ -49,10 +49,10 @@ public class SwitchSetting extends ConstraintLayout {
                 setLabelTextView(labelText, titleTextColor);
             }
 
-            descriptionColor = a.getColor(R.styleable.SwitchSetting_descriptionTextColor,
+            descriptionTextColor = a.getColor(R.styleable.SwitchSetting_descriptionTextColor,
                     getResources().getColor(R.color.text));
             String descriptionText = a.getString(R.styleable.SwitchSetting_descriptionText);
-            setDescriptionTextView(descriptionText, descriptionColor);
+            setDescriptionTextView(descriptionText, descriptionTextColor);
         } finally {
             a.recycle();
         }
@@ -71,7 +71,7 @@ public class SwitchSetting extends ConstraintLayout {
     }
 
     public void setDescription(String descriptionText) {
-        setDescriptionTextView(descriptionText, descriptionColor);
+        setDescriptionTextView(descriptionText, descriptionTextColor);
         //invalidateRequestLayout();
     }
 
@@ -81,8 +81,8 @@ public class SwitchSetting extends ConstraintLayout {
         //invalidateRequestLayout();
     }
 
-    public void setDisabledColor(int color) {
-        disabledColor = color;
+    public void setDisabledTextColor(int color) {
+        disabledTextColor = color;
         setEnabled(isEnabled());
     }
 
@@ -91,8 +91,8 @@ public class SwitchSetting extends ConstraintLayout {
         setEnabled(isEnabled());
     }
 
-    public void setDescriptionColor(int color) {
-        descriptionColor = color;
+    public void setDescriptionTextColor(int color) {
+        descriptionTextColor = color;
         setEnabled(isEnabled());
     }
 
@@ -102,11 +102,11 @@ public class SwitchSetting extends ConstraintLayout {
         aSwitch.setEnabled(enabled);
         if (enabled) {
             titleTextView.setTextColor(titleTextColor);
-            descriptionTextView.setTextColor(descriptionColor);
+            descriptionTextView.setTextColor(descriptionTextColor);
             iconImageView.setAlpha(1f);
         } else {
-            descriptionTextView.setTextColor(disabledColor);
-            titleTextView.setTextColor(disabledColor);
+            descriptionTextView.setTextColor(disabledTextColor);
+            titleTextView.setTextColor(disabledTextColor);
             iconImageView.setAlpha(0.5f);
         }
     }
@@ -144,7 +144,7 @@ public class SwitchSetting extends ConstraintLayout {
         if (isEnabled()) {
             descriptionTextView.setTextColor(color);
         } else {
-            descriptionTextView.setTextColor(disabledColor);
+            descriptionTextView.setTextColor(disabledTextColor);
         }
     }
 
@@ -153,7 +153,7 @@ public class SwitchSetting extends ConstraintLayout {
         if (isEnabled()) {
             titleTextView.setTextColor(color);
         } else {
-            titleTextView.setTextColor(disabledColor);
+            titleTextView.setTextColor(disabledTextColor);
         }
     }
 

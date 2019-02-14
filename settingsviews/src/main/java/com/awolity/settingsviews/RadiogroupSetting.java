@@ -2,6 +2,7 @@ package com.awolity.settingsviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ public class RadiogroupSetting extends ConstraintLayout {
     private TextView labelTextView, descriptionTextView;
     private ImageView iconImageView;
     private RadioButton firstButton, secondButton;
-    private int disabledColor, titleColor, descriptionColor,  radioButtonLabelColor;
+    private int disabledTextColor, titleTextColor, descriptionTextColor,  radioButtonLabelColor;
 
     public RadiogroupSetting(@NonNull Context context) {
         super(context);
@@ -28,6 +29,7 @@ public class RadiogroupSetting extends ConstraintLayout {
     public RadiogroupSetting(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         inflate();
+        setSaveEnabled(true);
 
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
@@ -35,24 +37,24 @@ public class RadiogroupSetting extends ConstraintLayout {
                 0, 0);
 
         try {
-            disabledColor = a.getColor(R.styleable.RadiogroupSetting_disabledColor,
+            disabledTextColor = a.getColor(R.styleable.RadiogroupSetting_disabledColor,
                     getResources().getColor(R.color.text_disabled));
 
             int iconResource = a.getResourceId(R.styleable.RadiogroupSetting_iconDrawableResource,
                     R.drawable.ic_placeholder);
             setIconImageView(iconResource);
 
-            titleColor = a.getColor(R.styleable.RadiogroupSetting_titleTextColor,
+            titleTextColor = a.getColor(R.styleable.RadiogroupSetting_titleTextColor,
                     getResources().getColor(R.color.text));
             String label = a.getString(R.styleable.RadiogroupSetting_titleText);
             if (label != null) {
-                setTitleTextView(label, titleColor);
+                setTitleTextView(label, titleTextColor);
             }
 
-            descriptionColor = a.getColor(R.styleable.RadiogroupSetting_descriptionTextColor,
+            descriptionTextColor = a.getColor(R.styleable.RadiogroupSetting_descriptionTextColor,
                     getResources().getColor(R.color.text));
             String description = a.getString(R.styleable.RadiogroupSetting_descriptionText);
-            setDescriptionTextView(description, descriptionColor);
+            setDescriptionTextView(description, descriptionTextColor);
 
             radioButtonLabelColor = a.getColor(R.styleable.RadiogroupSetting_radioButtonLabelTextColor,
                     getResources().getColor(R.color.text));
@@ -74,12 +76,12 @@ public class RadiogroupSetting extends ConstraintLayout {
     }
 
     public void setTitle(String labelText) {
-        setTitleTextView(labelText, titleColor);
+        setTitleTextView(labelText, titleTextColor);
         //invalidateRequestLayout();
     }
 
     public void setDescription(String descriptionText) {
-        setDescriptionTextView(descriptionText, descriptionColor);
+        setDescriptionTextView(descriptionText, descriptionTextColor);
         //invalidateRequestLayout();
     }
 
@@ -120,18 +122,18 @@ public class RadiogroupSetting extends ConstraintLayout {
         secondButton.setChecked(!firstSelected);
     }
 
-    public void setDisabledColor(int color) {
-        disabledColor = color;
+    public void setDisabledTextColor(int color) {
+        disabledTextColor = color;
         setEnabled(isEnabled());
     }
 
     public void setTitleTextColor(int color) {
-        titleColor = color;
+        titleTextColor = color;
         setEnabled(isEnabled());
     }
 
-    public void setDescriptionColor(int color) {
-        descriptionColor = color;
+    public void setDescriptionTextColor(int color) {
+        descriptionTextColor = color;
         setEnabled(isEnabled());
     }
 
@@ -141,19 +143,14 @@ public class RadiogroupSetting extends ConstraintLayout {
         firstButton.setEnabled(enabled);
         secondButton.setEnabled(enabled);
         if (enabled) {
-            labelTextView.setTextColor(titleColor);
-            descriptionTextView.setTextColor(descriptionColor);
+            labelTextView.setTextColor(titleTextColor);
+            descriptionTextView.setTextColor(descriptionTextColor);
             iconImageView.setAlpha(1f);
         } else {
-            descriptionTextView.setTextColor(disabledColor);
-            labelTextView.setTextColor(disabledColor);
+            descriptionTextView.setTextColor(disabledTextColor);
+            labelTextView.setTextColor(disabledTextColor);
             iconImageView.setAlpha(0.5f);
         }
-    }
-
-    private void invalidateRequestLayout() {
-        invalidate();
-        requestLayout();
     }
 
     private void inflate() {
@@ -178,7 +175,7 @@ public class RadiogroupSetting extends ConstraintLayout {
         if (isEnabled()) {
             descriptionTextView.setTextColor(color);
         } else {
-            descriptionTextView.setTextColor(disabledColor);
+            descriptionTextView.setTextColor(disabledTextColor);
         }
     }
 
@@ -187,7 +184,7 @@ public class RadiogroupSetting extends ConstraintLayout {
         if (isEnabled()) {
             labelTextView.setTextColor(color);
         } else {
-            labelTextView.setTextColor(disabledColor);
+            labelTextView.setTextColor(disabledTextColor);
         }
     }
 
@@ -204,4 +201,24 @@ public class RadiogroupSetting extends ConstraintLayout {
         void OnRadioButtonClicked(int selected);
     }
 
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable superState = super.onSaveInstanceState();
+        RadiogroupSettingSavedState ss = new RadiogroupSettingSavedState(superState);
+        ss.setDescriptionColorValue(descriptionTextColor);
+        ss.setDisabledColorValue(disabledTextColor);
+        ss.setRadioButtonLabelColorValue(radioButtonLabelColor);
+        ss.setTitleColorValue(titleTextColor);
+        return ss;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        RadiogroupSettingSavedState ss = (RadiogroupSettingSavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setDescriptionTextColor(ss.getDescriptionColorValue());
+        setDisabledTextColor(ss.getDisabledColorValue());
+        setRadioButtonLabelColor(ss.getRadioButtonLabelColorValue());
+        setTitleTextColor(ss.getTitleColorValue());
+    }
 }

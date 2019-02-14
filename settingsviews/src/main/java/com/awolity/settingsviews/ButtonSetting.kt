@@ -3,6 +3,7 @@ package com.awolity.settingsviews
 import android.animation.Animator
 import android.content.Context
 import android.content.res.TypedArray
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,7 @@ class ButtonSetting : ConstraintLayout {
     private var checkmarkImageView: ImageView? = null
     private var clickOverlay: FrameLayout? = null
     private var checkable: Boolean = false
-    private var disabledColor: Int = 0
+    private var disabledTextColor: Int = 0
     private var titleTextColor: Int = 0
     private var descriptionTextColor: Int = 0
 
@@ -79,7 +80,7 @@ class ButtonSetting : ConstraintLayout {
     }
 
     private fun setColorsFromAttributes(a: TypedArray) {
-        disabledColor = a.getColor(
+        disabledTextColor = a.getColor(
             R.styleable.ButtonSetting_disabledColor,
             resources.getColor(R.color.text_disabled)
         )
@@ -158,7 +159,7 @@ class ButtonSetting : ConstraintLayout {
     }
 
     fun setDisabledColor(color: Int) {
-        disabledColor = color
+        disabledTextColor = color
         isEnabled = isEnabled
     }
 
@@ -181,8 +182,8 @@ class ButtonSetting : ConstraintLayout {
             iconImageView!!.alpha = 1f
             checkmarkImageView!!.alpha = 1f
         } else {
-            descriptionTextView!!.setTextColor(disabledColor)
-            titleTextView!!.setTextColor(disabledColor)
+            descriptionTextView!!.setTextColor(disabledTextColor)
+            titleTextView!!.setTextColor(disabledTextColor)
             clickOverlay!!.visibility = View.GONE
             iconImageView!!.alpha = 0.5f
             checkmarkImageView!!.alpha = 0.5f
@@ -263,5 +264,22 @@ class ButtonSetting : ConstraintLayout {
             val scale = context.resources.displayMetrics.density
             return (dp * scale + 0.5f).toInt()
         }
+    }
+
+    public override fun onSaveInstanceState(): Parcelable? {
+        val superState = super.onSaveInstanceState()
+        val ss = ButtonSettingSavedState(superState)
+        ss.descriptionColorValue = descriptionTextColor
+        ss.disabledColorValue = disabledTextColor
+        ss.titleColorValue = titleTextColor
+        return ss
+    }
+
+    public override fun onRestoreInstanceState(state: Parcelable) {
+        val ss = state as ButtonSettingSavedState
+        super.onRestoreInstanceState(ss.superState)
+        setDescriptionColor(ss.descriptionColorValue)
+        setDisabledColor(ss.disabledColorValue)
+        setTitleTextColor(ss.titleColorValue)
     }
 }

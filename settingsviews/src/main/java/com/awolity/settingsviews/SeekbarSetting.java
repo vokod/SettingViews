@@ -19,7 +19,7 @@ public class SeekbarSetting extends ConstraintLayout {
     private TextView titleTextView, descriptionTextView;
     private ImageView iconImageView;
     private SeekBar seekBar;
-    private int disabledColor, titleTextColor, descriptionTextColor;
+    private int disabledTextColor, titleTextColor, descriptionTextColor;
     private int seekbarMax, seekbarPosition;
     private String exceptionText = "Position is bigger then max value";
 
@@ -56,7 +56,7 @@ public class SeekbarSetting extends ConstraintLayout {
     }
 
     private void setColorsFromAttributes(TypedArray a) {
-        disabledColor = a.getColor(R.styleable.SeekbarSetting_disabledColor,
+        disabledTextColor = a.getColor(R.styleable.SeekbarSetting_disabledColor,
                 getResources().getColor(R.color.text_disabled));
 
         titleTextColor = a.getColor(R.styleable.SeekbarSetting_titleTextColor,
@@ -110,8 +110,8 @@ public class SeekbarSetting extends ConstraintLayout {
         iconImageView.setImageResource(iconResource);
     }
 
-    public void setDisabledColor(int color) {
-        disabledColor = color;
+    public void setDisabledTextColor(int color) {
+        disabledTextColor = color;
         setEnabled(isEnabled());
     }
 
@@ -134,8 +134,8 @@ public class SeekbarSetting extends ConstraintLayout {
             descriptionTextView.setTextColor(descriptionTextColor);
             iconImageView.setAlpha(1f);
         } else {
-            descriptionTextView.setTextColor(disabledColor);
-            titleTextView.setTextColor(disabledColor);
+            descriptionTextView.setTextColor(disabledTextColor);
+            titleTextView.setTextColor(disabledTextColor);
             iconImageView.setAlpha(0.5f);
         }
     }

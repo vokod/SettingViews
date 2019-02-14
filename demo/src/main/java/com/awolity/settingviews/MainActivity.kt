@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import android.widget.SeekBar
 import android.widget.Toast
+import com.awolity.settingsviews.RadiogroupSetting
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 
@@ -29,9 +30,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "SwitchSetting switched: "+ ss.checked, Toast.LENGTH_LONG).show()
         }
 
-        rs.setListener {
-            Toast.makeText(this@MainActivity, "RadioGroupSetting clicked. Selected radioButton: $it", Toast.LENGTH_LONG).show()
-        }
+        rs.setListener(object: RadiogroupSetting.RadiogroupSettingListener{
+            override fun OnRadioButtonClicked(selected: Int) {
+                Toast.makeText(this@MainActivity, "RadioGroupSetting clicked. Selected radioButton: $selected", Toast.LENGTH_LONG).show()
+            }
+        })
 
         es.setSeekBarListener(object:SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {

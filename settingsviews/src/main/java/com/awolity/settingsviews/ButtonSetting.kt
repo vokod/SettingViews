@@ -54,6 +54,7 @@ class ButtonSetting : ConstraintLayout {
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         inflate()
+        isSaveEnabled = true
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.ButtonSetting, 0, 0)
         try {
             setColorsFromAttributes(a)
@@ -65,7 +66,8 @@ class ButtonSetting : ConstraintLayout {
     }
 
     constructor(
-        context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        context: Context, attrs: AttributeSet?, defStyleAttr: Int
+    ) : super(context, attrs, defStyleAttr) {
         inflate()
     }
 

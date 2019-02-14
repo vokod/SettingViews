@@ -9,7 +9,6 @@ internal class RadiogroupSettingSavedState : View.BaseSavedState {
     var disabledColorValue: Int = 0
     var titleColorValue: Int = 0
     var descriptionColorValue: Int = 0
-    var radioButtonLabelColorValue: Int = 0
 
     override fun describeContents(): Int {
         return 0
@@ -19,7 +18,6 @@ internal class RadiogroupSettingSavedState : View.BaseSavedState {
         dest.writeInt(this.disabledColorValue)
         dest.writeInt(this.titleColorValue)
         dest.writeInt(this.descriptionColorValue)
-        dest.writeInt(this.radioButtonLabelColorValue)
     }
 
     constructor(superState: Parcelable) : super(superState) {}
@@ -28,7 +26,6 @@ internal class RadiogroupSettingSavedState : View.BaseSavedState {
         this.disabledColorValue = `in`.readInt()
         this.titleColorValue = `in`.readInt()
         this.descriptionColorValue = `in`.readInt()
-        this.radioButtonLabelColorValue = `in`.readInt()
     }
 
     companion object {

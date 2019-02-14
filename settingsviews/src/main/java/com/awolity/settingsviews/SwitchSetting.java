@@ -2,6 +2,7 @@ package com.awolity.settingsviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -165,4 +166,26 @@ public class SwitchSetting extends ConstraintLayout {
         float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable superState = super.onSaveInstanceState();
+        SwitchSettingSavedState ss = new SwitchSettingSavedState(superState);
+        ss.setDescriptionColorValue(descriptionTextColor);
+        ss.setDisabledColorValue(disabledTextColor);
+        ss.setTitleColorValue(titleTextColor);
+
+        return ss;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        SwitchSettingSavedState ss = (SwitchSettingSavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setDescriptionTextColor(ss.getDescriptionColorValue());
+        setDisabledTextColor(ss.getDisabledColorValue());
+        setTitleTextColor(ss.getTitleColorValue());
+
+    }
+
 }

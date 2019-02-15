@@ -12,9 +12,10 @@
             android:layout_height="wrap_content"
             custom:titleText="@string/test_title"
             custom:descriptionText="@string/test_description"
-            custom:iconDrawableResource="@drawable/ic_android"
-            custom:disabledColor="@color/text_disabled"
-            custom:titleTextColor="@color/text_dark"
-            custom:descriptionTextColor="@color/text"
+            custom:iconDrawableResource="@drawable/test_ic_android"
+            custom:disabledColor="@color/test_text_disabled"
+            custom:titleTextColor="@color/test_text_title"
+            custom:descriptionTextColor="@color/test_text_description"
             custom:isCheckable="true"/>
+
 </LinearLayout>

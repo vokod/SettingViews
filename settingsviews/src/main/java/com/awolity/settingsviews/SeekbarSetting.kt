@@ -63,13 +63,13 @@ class SeekbarSetting : ConstraintLayout {
 
         titleTextColor = a.getColor(
             R.styleable.SeekbarSetting_titleTextColor,
-            resources.getColor(R.color.text)
+            resources.getColor(R.color.text_description)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
             R.styleable.SeekbarSetting_descriptionTextColor,
-            resources.getColor(R.color.text)
+            resources.getColor(R.color.text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }

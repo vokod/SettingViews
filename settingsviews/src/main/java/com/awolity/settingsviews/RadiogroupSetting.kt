@@ -60,19 +60,19 @@ class RadiogroupSetting : ConstraintLayout {
 
         titleTextColor = a.getColor(
             R.styleable.RadiogroupSetting_titleTextColor,
-            resources.getColor(R.color.text)
+            resources.getColor(R.color.text_description)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
             R.styleable.RadiogroupSetting_descriptionTextColor,
-            resources.getColor(R.color.text)
+            resources.getColor(R.color.text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
 
         val radioButtonLabelColor = a.getColor(
             R.styleable.RadiogroupSetting_radioButtonLabelTextColor,
-            resources.getColor(R.color.text)
+            resources.getColor(R.color.text_description)
         )
         setRadioButtonLabelColor(radioButtonLabelColor)
     }

@@ -30,14 +30,22 @@ class ButtonSetting : ConstraintLayout {
         set(checkable) {
             this.checkable = checkable
             if (checkable) {
-                checkmarkImageView!!.visibility = View.VISIBLE
+                if (checked) {
+                    checkmarkImageView!!.visibility = View.VISIBLE
+                } else {
+                    checkmarkImageView!!.visibility = View.GONE
+                }
             } else {
                 checkmarkImageView!!.visibility = View.GONE
             }
         }
 
     var checked: Boolean
-        get() = checkmarkImageView!!.visibility == View.VISIBLE
+        get() = if (checkable) {
+            checkmarkImageView!!.visibility == View.VISIBLE
+        } else {
+            throw IllegalStateException("ButtonSetting is not checkable")
+        }
         set(checked) = if (checkable) {
             if (checked) {
                 checkmarkImageView!!.visibility = View.VISIBLE
@@ -60,6 +68,7 @@ class ButtonSetting : ConstraintLayout {
             setColorsFromAttributes(a)
             setIconsFromAttributes(a)
             setLabelsFromAttributes(a)
+            setCheckableFromAttributes(a)
         } finally {
             a.recycle()
         }
@@ -89,13 +98,13 @@ class ButtonSetting : ConstraintLayout {
 
         titleTextColor = a.getColor(
             R.styleable.ButtonSetting_titleTextColor,
-            resources.getColor(R.color.text)
+            resources.getColor(R.color.text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
             R.styleable.ButtonSetting_descriptionTextColor,
-            resources.getColor(R.color.text)
+            resources.getColor(R.color.text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }
@@ -113,6 +122,10 @@ class ButtonSetting : ConstraintLayout {
             R.drawable.ic_check_black
         )
         setCheckmark(checkable, checkmarkIconResource)
+    }
+
+    private fun setCheckableFromAttributes(a: TypedArray) {
+        checkable = a.getBoolean(R.styleable.ButtonSetting_isCheckable, false)
     }
 
     private fun setCheckmark(isCheckable: Boolean, iconResource: Int) {
@@ -170,7 +183,7 @@ class ButtonSetting : ConstraintLayout {
         isEnabled = isEnabled
     }
 
-    fun setDescriptionColor(color: Int) {
+    fun setDescriptionTextColor(color: Int) {
         descriptionTextColor = color
         isEnabled = isEnabled
     }
@@ -280,7 +293,7 @@ class ButtonSetting : ConstraintLayout {
     public override fun onRestoreInstanceState(state: Parcelable) {
         val ss = state as ButtonSettingSavedState
         super.onRestoreInstanceState(ss.superState)
-        setDescriptionColor(ss.descriptionColorValue)
+        setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
     }

@@ -6,9 +6,14 @@
     <color name="primary_dark">#616161</color>
     <color name="accent">#00BCD4</color>
 
-    <color name="text">#222</color>
+    <color name="text_description">#222</color>
     <color name="text_disabled">#888888</color>
-    <color name="text_dark">#000000</color>
+    <color name="text_title">#000000</color>
     <color name="bg">#cccccc</color>
+
+    <color name="test_text_title">#FF0000</color>
+    <color name="test_text_description">#00FF00</color>
+    <color name="test_text_disabled">#0000FF</color>
+
 
 </resources>

@@ -12,11 +12,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.awolity.settingsviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock.*
-import org.hamcrest.Matchers.not
+import kotlinx.android.synthetic.main.activity_mock_attributes.*
 
 @RunWith(AndroidJUnit4::class)
-class ButtonSettingTest {
+class ButtonSettingAttributesTests {
 
     @Rule
     @JvmField
@@ -24,71 +23,60 @@ class ButtonSettingTest {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock
+        MockActivity.layout = R.layout.activity_mock_attributes
+        restartActivity()
     }
 
     @Test
-    fun testTextsSetFromAttributes() {
-        restartActivity()
+    fun testTitleTextSetFromAttributes() {
         onView(withId(R.id.tv_title)).check(matches(withText(R.string.test_title)))
+    }
+
+    @Test
+    fun testDescriptionTextSetFromAttributes() {
         onView(withId(R.id.tv_desc)).check(matches(withText(R.string.test_description)))
     }
 
     @Test
-    fun testColorsSetFromAttributes() {
-        restartActivity()
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.text_dark, activityRule.activity.resources)))
-        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.text, activityRule.activity.resources)))
+    fun testTitleColorSetFromAttributes() {
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_title, activityRule.activity.resources)))
+    }
+
+    @Test
+    fun testDescriptionColorSetFromAttributes() {
+        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.test_text_description, activityRule.activity.resources)))
+    }
+
+    @Test
+    fun testDisabledTitleColorFromAttribute() {
+        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+    }
+
+    @Test
+    fun testDisabledDescriptionColorFromAttribute() {
+        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
+        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test
     fun testIconSetFromAttributes() {
-        restartActivity()
-        onView(withId(R.id.iv_icon)).check(matches(withDrawable(R.drawable.ic_android)))
+        onView(withId(R.id.iv_icon)).check(matches(withDrawable(R.drawable.test_ic_android)))
     }
 
     @Test
     fun testCheckmarkIconSetFromAttributes() {
-        restartActivity()
         onView(withId(R.id.iv_checkmark)).check(matches(withDrawable(R.drawable.ic_check_black)))
     }
 
     @Test
     fun testCheckmarkVisibleSetFromAttributes() {
-        restartActivity()
         onView(withId(R.id.iv_checkmark)).check(matches(isDisplayed()))
     }
 
 
 
 
-    @Test
-    fun testDisabledTitleColorFromAttribute() {
-        restartActivity()
-        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
-        onView(withId(R.id.tv_title)).check(
-            matches(
-                withTextColor(
-                    R.color.text_disabled,
-                    activityRule.activity.resources
-                )
-            )
-        )
-    }
-
-    @Test
-    fun testDisabledDescriptionColorFromAttribute() {
-        restartActivity()
-        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
-        onView(withId(R.id.tv_desc)).check(
-            matches(
-                withTextColor(
-                    R.color.text_disabled,
-                    activityRule.activity.resources
-                )
-            )
-        )
-    }
 
     @Test
     fun testDisable() {

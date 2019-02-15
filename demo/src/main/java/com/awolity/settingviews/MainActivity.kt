@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         ss.setOnCheckedChangedListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
             Toast.makeText(this@MainActivity, "SwitchSetting switched: $isChecked", Toast.LENGTH_LONG).show() })
 
-        rs.setListener(object: RadiogroupSetting.RadiogroupSettingListener{
+       rs.setListener(object: RadiogroupSetting.RadiogroupSettingListener{
             override fun OnRadioButtonClicked(selected: Int) {
                 Toast.makeText(this@MainActivity, "RadioGroupSetting clicked. Selected radioButton: $selected", Toast.LENGTH_LONG).show()
             }
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_change_disabled_color.setOnClickListener{
-            bs.setDisabledColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
+            bs.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
             ss.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
             rs.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
             es.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))

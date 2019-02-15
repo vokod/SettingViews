@@ -6,7 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import kotlinx.android.synthetic.main.activity_mock_attributes.*
+import kotlinx.android.synthetic.main.activity_mock_defaults_bs.*
 import org.hamcrest.CoreMatchers
 import org.junit.Before
 import org.junit.Rule
@@ -22,7 +22,7 @@ class ButtonSettingDefaultValuesTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_defaults
+        MockActivity.layout = R.layout.activity_mock_defaults_bs
         restartActivity()
     }
 

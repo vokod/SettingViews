@@ -4,9 +4,9 @@
     <string name="button_setting_checkmark_content_description">Checkmark of setting</string>
 
     <string name="test_title">Title text</string>
-    <string name="test_description">Description text, a little longer, can be multiple lines, lorem ipsum dolor sit amet
-        sálálálá
-    </string>
+    <string name="test_description">Description text, a little longer, can be multiple lines, lorem ipsum dolor sit amet</string>
+    <string name="test_text_1">text 1</string>
+    <string name="test_text_2">text 2</string>
 
 
 </resources>

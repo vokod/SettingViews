@@ -62,7 +62,6 @@ class ButtonSetting : ConstraintLayout {
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         inflate()
-        isSaveEnabled = true
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.ButtonSetting, 0, 0)
         try {
             setColorsFromAttributes(a)
@@ -81,6 +80,7 @@ class ButtonSetting : ConstraintLayout {
     }
 
     private fun inflate() {
+        isSaveEnabled = true
         LayoutInflater.from(context).inflate(R.layout.setting_button, this, true)
         titleTextView = findViewById(R.id.tv_title)
         descriptionTextView = findViewById(R.id.tv_desc)
@@ -126,6 +126,9 @@ class ButtonSetting : ConstraintLayout {
 
     private fun setCheckableFromAttributes(a: TypedArray) {
         checkable = a.getBoolean(R.styleable.ButtonSetting_isCheckable, false)
+        if(checkable){
+            checked = a.getBoolean(R.styleable.ButtonSetting_checked, false)
+        }
     }
 
     private fun setCheckmark(isCheckable: Boolean, iconResource: Int) {
@@ -173,7 +176,7 @@ class ButtonSetting : ConstraintLayout {
         checkmarkImageView!!.setImageResource(iconResource)
     }
 
-    fun setDisabledColor(color: Int) {
+    fun setDisabledTextColor(color: Int) {
         disabledTextColor = color
         isEnabled = isEnabled
     }
@@ -294,7 +297,7 @@ class ButtonSetting : ConstraintLayout {
         val ss = state as SettingSavedState
         super.onRestoreInstanceState(ss.superState)
         setDescriptionTextColor(ss.descriptionColorValue)
-        setDisabledColor(ss.disabledColorValue)
+        setDisabledTextColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
     }
 }

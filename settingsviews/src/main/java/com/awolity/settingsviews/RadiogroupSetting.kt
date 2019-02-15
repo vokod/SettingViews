@@ -11,6 +11,7 @@ import android.widget.RadioButton
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 
+// TODO: valami enumot, vagy inline class-t a selected value-hoz
 class RadiogroupSetting : ConstraintLayout {
     private var titleTextView: TextView? = null
     private var descriptionTextView: TextView? = null
@@ -20,6 +21,7 @@ class RadiogroupSetting : ConstraintLayout {
     private var disabledTextColor: Int = 0
     private var titleTextColor: Int = 0
     private var descriptionTextColor: Int = 0
+    private var radioButtonLabelTextColor: Int = 0
 
     constructor(context: Context) : super(context) {
         inflate()
@@ -32,7 +34,7 @@ class RadiogroupSetting : ConstraintLayout {
             setColorsFromAttributes(a)
             setIconFromAttributes(a)
             setLabelsFromAttributes(a)
-            setSelectedRadioButton(true)
+            setSelectedRadiobuttonFromAttributes(a)
         } finally {
             a.recycle()
         }
@@ -50,6 +52,7 @@ class RadiogroupSetting : ConstraintLayout {
         iconImageView = findViewById(R.id.iv_icon)
         firstButton = findViewById(R.id.rb_one)
         secondButton = findViewById(R.id.rb_two)
+
     }
 
     private fun setColorsFromAttributes(a: TypedArray) {
@@ -60,7 +63,7 @@ class RadiogroupSetting : ConstraintLayout {
 
         titleTextColor = a.getColor(
             R.styleable.RadiogroupSetting_titleTextColor,
-            resources.getColor(R.color.text_description)
+            resources.getColor(R.color.text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
@@ -70,11 +73,11 @@ class RadiogroupSetting : ConstraintLayout {
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
 
-        val radioButtonLabelColor = a.getColor(
+        radioButtonLabelTextColor = a.getColor(
             R.styleable.RadiogroupSetting_radioButtonLabelTextColor,
             resources.getColor(R.color.text_description)
         )
-        setRadioButtonLabelColor(radioButtonLabelColor)
+        setRadioButtonLabelColor(radioButtonLabelTextColor)
     }
 
     private fun setIconFromAttributes(a: TypedArray) {
@@ -97,6 +100,11 @@ class RadiogroupSetting : ConstraintLayout {
         val labelFirstRadioButtonLabel = a.getString(R.styleable.RadiogroupSetting_firstRadioButtonText)
         val labelSecondRadioButtonLabel = a.getString(R.styleable.RadiogroupSetting_secondRadioButtonText)
         setRadioButtonsLabel(labelFirstRadioButtonLabel, labelSecondRadioButtonLabel)
+    }
+
+    private fun setSelectedRadiobuttonFromAttributes(a:TypedArray){
+        val firstSelected = a.getBoolean(R.styleable.RadiogroupSetting_firstRadioButtonSelected, true)
+        setSelectedRadioButton(firstSelected)
     }
 
     fun setTitle(title: String) {
@@ -133,6 +141,8 @@ class RadiogroupSetting : ConstraintLayout {
             secondButton!!.text = label2
     }
 
+    // TODO: listenert megadni attribútumból
+
     fun setListener(listener: RadiogroupSettingListener) {
         firstButton!!.setOnClickListener { listener.OnRadioButtonClicked(0) }
         secondButton!!.setOnClickListener { listener.OnRadioButtonClicked(1) }
@@ -141,6 +151,10 @@ class RadiogroupSetting : ConstraintLayout {
     fun setSelectedRadioButton(firstSelected: Boolean) {
         firstButton!!.isChecked = firstSelected
         secondButton!!.isChecked = !firstSelected
+    }
+
+    fun getSelectedRadioButton(): Boolean {
+        return firstButton!!.isChecked
     }
 
     fun setDisabledTextColor(color: Int) {
@@ -165,15 +179,17 @@ class RadiogroupSetting : ConstraintLayout {
         if (enabled) {
             titleTextView!!.setTextColor(titleTextColor)
             descriptionTextView!!.setTextColor(descriptionTextColor)
+            firstButton!!.setTextColor(radioButtonLabelTextColor)
+            secondButton!!.setTextColor(radioButtonLabelTextColor)
             iconImageView!!.alpha = 1f
         } else {
             descriptionTextView!!.setTextColor(disabledTextColor)
             titleTextView!!.setTextColor(disabledTextColor)
+            firstButton!!.setTextColor(disabledTextColor)
+            secondButton!!.setTextColor(disabledTextColor)
             iconImageView!!.alpha = 0.5f
         }
     }
-
-
 
     interface RadiogroupSettingListener {
         fun OnRadioButtonClicked(selected: Int)
@@ -197,9 +213,7 @@ class RadiogroupSetting : ConstraintLayout {
     }
 
     companion object {
-
         private val TAG = "RadiogroupSetting"
-
         private fun getInPx(context: Context, dp: Int): Int {
             val scale = context.resources.displayMetrics.density
             return (dp * scale + 0.5f).toInt()

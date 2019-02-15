@@ -12,10 +12,11 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.awolity.settingsviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_attributes_bs.*
+import kotlinx.android.synthetic.main.activity_mock_attributes_rs.*
+import org.hamcrest.CoreMatchers.not
 
 @RunWith(AndroidJUnit4::class)
-class ButtonSettingAttributesTests {
+class RadioGroupSettingAttributesTests {
 
     @Rule
     @JvmField
@@ -23,7 +24,7 @@ class ButtonSettingAttributesTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_attributes_bs
+        MockActivity.layout = R.layout.activity_mock_attributes_rs
         restartActivity()
     }
 
@@ -38,6 +39,16 @@ class ButtonSettingAttributesTests {
     }
 
     @Test
+    fun test_Radiobutton1Label_TextSetFromAttributes() {
+        onView(withId(R.id.rb_one)).check(matches(withText(R.string.test_text_1)))
+    }
+
+    @Test
+    fun test_Radiobutton2Label_TextSetFromAttributes() {
+        onView(withId(R.id.rb_two)).check(matches(withText(R.string.test_text_2)))
+    }
+
+    @Test
     fun test_TitleColor_SetFromAttributes() {
         onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_title, activityRule.activity.resources)))
     }
@@ -49,14 +60,21 @@ class ButtonSettingAttributesTests {
 
     @Test
     fun test_DisabledTitleColor_SetFromAttribute() {
-        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
+        activityRule.runOnUiThread { activityRule.activity.rs.isEnabled = false }
         onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DisabledDescriptionColor_SetFromAttribute() {
-        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
+        activityRule.runOnUiThread { activityRule.activity.rs.isEnabled = false }
         onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+    }
+
+    @Test
+    fun test_DisabledRadioButtonLabelColor_SetFromAttribute() {
+        activityRule.runOnUiThread { activityRule.activity.rs.isEnabled = false }
+        onView(withId(R.id.rb_one)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+        onView(withId(R.id.rb_two)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test
@@ -65,20 +83,13 @@ class ButtonSettingAttributesTests {
     }
 
     @Test
-    fun test_CheckmarkIcon_SetFromAttributes() {
-        onView(withId(R.id.iv_checkmark)).check(matches(withDrawable(R.drawable.test_ic_check_red)))
+    fun test_Radiobutton2_IsSelected_SetFromAttributes() {
+        onView(withId(R.id.rb_two)).check(matches(isSelected()))
     }
 
     @Test
-    fun test_CheckmarkVisible_SetFromAttributes() {
-        onView(withId(R.id.iv_checkmark)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun test_IsChecked_SetFromAttributes() {
-        activityRule.runOnUiThread {
-            assert(activityRule.activity.bs.checked)
-        }
+    fun test_Radiobutton1_IsNotSelected_SetFromAttributes() {
+        onView(withId(R.id.rb_one)).check(matches(not(isSelected())))
     }
 
     private fun restartActivity() {

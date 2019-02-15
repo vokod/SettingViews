@@ -11,11 +11,12 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.awolity.settingsviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_attributes.*
+import kotlinx.android.synthetic.main.activity_mock_defaults_bs.*
 import org.hamcrest.CoreMatchers.not
 import java.lang.IllegalStateException
+
 @RunWith(AndroidJUnit4::class)
-class ButtonSettingSetTests {
+class ButtonSettingSetFromCodeTests {
 
     @Rule
     @JvmField
@@ -23,14 +24,16 @@ class ButtonSettingSetTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_defaults
+        MockActivity.layout = R.layout.activity_mock_defaults_bs
         restartActivity()
     }
 
     @Test
     fun setDisabled_GetDisabled() {
-        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
-        activityRule.runOnUiThread { assert(!activityRule.activity.bs.isEnabled) }
+        activityRule.runOnUiThread {
+            activityRule.activity.bs.isEnabled = false
+            assert(!activityRule.activity.bs.isEnabled)
+        }
     }
 
     @Test
@@ -61,9 +64,11 @@ class ButtonSettingSetTests {
 
     @Test
     fun setEnable_GetEnabled() {
-        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
-        activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = true }
-        activityRule.runOnUiThread { assert(!activityRule.activity.bs.isEnabled) }
+        activityRule.runOnUiThread {
+            activityRule.activity.bs.isEnabled = false
+            activityRule.activity.bs.isEnabled = true
+            assert(!activityRule.activity.bs.isEnabled)
+        }
     }
 
     @Test
@@ -148,7 +153,7 @@ class ButtonSettingSetTests {
         activityRule.runOnUiThread {
             activityRule.activity.bs.setTitle(title)
             activityRule.activity.bs.isEnabled = false
-            activityRule.activity.bs.setDisabledColor(activityRule.activity.getColor(R.color.test_text_disabled))
+            activityRule.activity.bs.setDisabledTextColor(activityRule.activity.getColor(R.color.test_text_disabled))
         }
         onView(withId(R.id.tv_title)).check(
             matches(
@@ -163,7 +168,7 @@ class ButtonSettingSetTests {
     @Test
     fun setDisabledColorDescription_lookDisabledColorDescription() {
         activityRule.runOnUiThread {
-            activityRule.activity.bs.setDisabledColor(activityRule.activity.getColor(R.color.test_text_disabled))
+            activityRule.activity.bs.setDisabledTextColor(activityRule.activity.getColor(R.color.test_text_disabled))
             activityRule.activity.bs.isEnabled = false
             activityRule.activity.bs.setDescription(description)
         }
@@ -178,13 +183,13 @@ class ButtonSettingSetTests {
     }
 
     @Test
-    fun testSetCheckable_GetCheckable() {
+    fun setCheckable_GetCheckable() {
         activityRule.runOnUiThread { activityRule.activity.bs.isCheckable = true }
         activityRule.runOnUiThread { assert(activityRule.activity.bs.isCheckable) }
     }
 
     @Test
-    fun testSetCheckable_GetNotChecked() {
+    fun setCheckable_GetNotChecked() {
         activityRule.runOnUiThread {
             activityRule.activity.bs.isCheckable = true
             assert(!activityRule.activity.bs.checked)
@@ -192,13 +197,13 @@ class ButtonSettingSetTests {
     }
 
     @Test
-    fun testSetCheckable_looksNotChecked() {
+    fun setCheckable_looksNotChecked() {
         activityRule.runOnUiThread { activityRule.activity.bs.isCheckable = true }
         onView(withId(R.id.iv_checkmark)).check(matches(not(isDisplayed())))
     }
 
     @Test
-    fun testSetUnchekable_getNotCheckable() {
+    fun setUnchekable_getNotCheckable() {
         activityRule.runOnUiThread {
             activityRule.activity.bs.isCheckable = false
             assert(!activityRule.activity.bs.isCheckable)
@@ -206,7 +211,7 @@ class ButtonSettingSetTests {
     }
 
     @Test
-    fun testSetCheckable_setChecked_getChecked() {
+    fun setCheckable_setChecked_getChecked() {
         activityRule.runOnUiThread {
             activityRule.activity.bs.isCheckable = true
             activityRule.activity.bs.checked = true
@@ -215,7 +220,7 @@ class ButtonSettingSetTests {
     }
 
     @Test
-    fun testSetCheckable_setChecked_looksChecked() {
+    fun setCheckable_setChecked_looksChecked() {
         activityRule.runOnUiThread {
             activityRule.activity.bs.isCheckable = true
             activityRule.activity.bs.checked = true
@@ -224,7 +229,7 @@ class ButtonSettingSetTests {
     }
 
     @Test
-    fun testSetCheckable_setChecked_setUnchecked_getNotChecked() {
+    fun setCheckable_setChecked_setUnchecked_getNotChecked() {
         activityRule.runOnUiThread {
             activityRule.activity.bs.isCheckable = true
             activityRule.activity.bs.checked = true
@@ -234,7 +239,7 @@ class ButtonSettingSetTests {
     }
 
     @Test
-    fun testSetCheckable_setChecked_setUnchecked_looksNotChecked() {
+    fun setCheckable_setChecked_setUnchecked_looksNotChecked() {
         activityRule.runOnUiThread {
             activityRule.activity.bs.isCheckable = true
             activityRule.activity.bs.checked = true
@@ -244,17 +249,17 @@ class ButtonSettingSetTests {
     }
 
     @Test(expected = IllegalStateException::class)
-    fun testNotCheckable_setChecked_throwsException() {
+    fun setNotCheckable_setChecked_throwsException() {
         activityRule.runOnUiThread { activityRule.activity.bs.checked = true }
     }
 
     @Test(expected = IllegalStateException::class)
-    fun testNotCheckable_getChecked_throwsException() {
+    fun setNotCheckable_getChecked_throwsException() {
         activityRule.runOnUiThread { assert(activityRule.activity.bs.checked) }
     }
 
     @Test
-    fun testSetCheckable_setChecked_setUnchekable_looksNotChecked() {
+    fun setSetCheckable_setChecked_setUnchekable_looksNotChecked() {
         activityRule.runOnUiThread {
             activityRule.activity.bs.isCheckable = true
             activityRule.activity.bs.checked = true
@@ -263,12 +268,10 @@ class ButtonSettingSetTests {
         onView(withId(R.id.iv_checkmark)).check(matches(not(isDisplayed())))
     }
 
-
     @Test
     fun setCheckmarkIcon_looksChekmarkIcon() {
         activityRule.runOnUiThread { activityRule.activity.bs.setCheckmarkIcon(R.drawable.test_ic_check_red) }
         onView(withId(R.id.iv_checkmark)).check(matches(DrawableMatcher.withDrawable(R.drawable.test_ic_check_red)))
-
     }
 
     private fun restartActivity() {

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:custom="http://schemas.android.com/apk/res-auto"
-
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.awolity.settingsviews.ButtonSetting
-            android:id="@+id/bs"
+    <com.awolity.settingsviews.RadiogroupSetting
+            android:id="@+id/rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             custom:titleText="@string/test_title"
@@ -16,6 +15,8 @@
             custom:disabledColor="@color/test_text_disabled"
             custom:titleTextColor="@color/test_text_title"
             custom:descriptionTextColor="@color/test_text_description"
-            custom:isCheckable="true"/>
-
+            custom:firstRadioButtonSelected="false"
+            custom:radioButtonLabelTextColor="@color/test_text_radiobutton_label"
+            custom:firstRadioButtonText="@string/test_text_1"
+            custom:secondRadioButtonText="@string/test_text_2"/>
 </LinearLayout>

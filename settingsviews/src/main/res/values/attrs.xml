@@ -16,6 +16,7 @@
         <attr name="descriptionText"/>
         <attr name="descriptionTextColor"/>
         <attr name="isCheckable" format="boolean"/>
+        <attr name="checked"/>
         <attr name="checkmarkDrawableResource" format="reference"/>
     </declare-styleable>
 

@@ -14,6 +14,7 @@
     <color name="test_text_title">#FF0000</color>
     <color name="test_text_description">#00FF00</color>
     <color name="test_text_disabled">#0000FF</color>
+    <color name="test_text_radiobutton_label">#00ffFF</color>
 
 
 </resources>

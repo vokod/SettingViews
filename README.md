@@ -1,5 +1,5 @@
 # SettingViews
-Android compound views for mnaging settings
+Android compound views for managing settings
 
 A collection of compound views that I tend to be using in almost all of my Android projects (because I'm bored by PreferenceFragment).
 The views look like the setting-groups of the AOSP settings app.

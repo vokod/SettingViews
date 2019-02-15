@@ -283,7 +283,7 @@ class ButtonSetting : ConstraintLayout {
 
     public override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
-        val ss = ButtonSettingSavedState(superState)
+        val ss = SettingSavedState(superState)
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
@@ -291,7 +291,7 @@ class ButtonSetting : ConstraintLayout {
     }
 
     public override fun onRestoreInstanceState(state: Parcelable) {
-        val ss = state as ButtonSettingSavedState
+        val ss = state as SettingSavedState
         super.onRestoreInstanceState(ss.superState)
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledColor(ss.disabledColorValue)

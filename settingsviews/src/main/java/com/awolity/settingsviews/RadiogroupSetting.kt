@@ -181,7 +181,7 @@ class RadiogroupSetting : ConstraintLayout {
 
     public override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
-        val ss = RadiogroupSettingSavedState(superState!!)
+        val ss = SettingSavedState(superState!!)
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
@@ -189,7 +189,7 @@ class RadiogroupSetting : ConstraintLayout {
     }
 
     public override fun onRestoreInstanceState(state: Parcelable) {
-        val ss = state as RadiogroupSettingSavedState
+        val ss = state as SettingSavedState
         super.onRestoreInstanceState(ss.superState)
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)

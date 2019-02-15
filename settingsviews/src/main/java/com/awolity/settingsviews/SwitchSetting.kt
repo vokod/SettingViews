@@ -157,16 +157,15 @@ class SwitchSetting : ConstraintLayout {
 
     public override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
-        val ss = SwitchSettingSavedState(superState!!)
+        val ss = SettingSavedState(superState!!)
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
         return ss
-        // TODO: tesztelni a switched állapotot
     }
 
     public override fun onRestoreInstanceState(state: Parcelable) {
-        val ss = state as SwitchSettingSavedState
+        val ss = state as SettingSavedState
         super.onRestoreInstanceState(ss.superState)
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)

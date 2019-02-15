@@ -164,23 +164,23 @@ class SeekbarSetting : ConstraintLayout {
 
     public override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
-        val ss = SeekbarSettingSavedState(superState!!)
+        val ss = SettingSavedState(superState!!)
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
-        ss.max = max
-        ss.position = position
+       // ss.max = max
+        //ss.position = position
         return ss
         // TODO: tesztelni a radiobuttonokat
     }
 
     public override fun onRestoreInstanceState(state: Parcelable) {
-        val ss = state as SeekbarSettingSavedState
+        val ss = state as SettingSavedState
         super.onRestoreInstanceState(ss.superState)
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
-        setSeekBar(ss.max, ss.position)
+       // setSeekBar(ss.max, ss.position)
     }
 
     companion object {

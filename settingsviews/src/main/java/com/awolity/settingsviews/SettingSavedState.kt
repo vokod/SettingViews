@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.view.View
 
-internal class SwitchSettingSavedState : View.BaseSavedState {
+internal class SettingSavedState : View.BaseSavedState {
 
     var disabledColorValue: Int = 0
     var titleColorValue: Int = 0
@@ -31,14 +31,14 @@ internal class SwitchSettingSavedState : View.BaseSavedState {
     companion object {
 
         @JvmField
-        val CREATOR: Parcelable.Creator<SwitchSettingSavedState> =
-            object : Parcelable.Creator<SwitchSettingSavedState> {
-                override fun createFromParcel(source: Parcel): SwitchSettingSavedState {
-                    return SwitchSettingSavedState(source)
+        val CREATOR: Parcelable.Creator<SettingSavedState> =
+            object : Parcelable.Creator<SettingSavedState> {
+                override fun createFromParcel(source: Parcel): SettingSavedState {
+                    return SettingSavedState(source)
                 }
 
-                override fun newArray(size: Int): Array<SwitchSettingSavedState?> {
-                    return arrayOfNulls<SwitchSettingSavedState>(size)
+                override fun newArray(size: Int): Array<SettingSavedState?> {
+                    return arrayOfNulls<SettingSavedState>(size)
                 }
             }
     }

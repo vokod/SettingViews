@@ -10,4 +10,4 @@ Types:
 - Seekbar Setting
 - Switch Setting
 
-<img src="https://raw.githubusercontent.com/vokod/SettingViews/master/screenshots/s8.png" >
+<img src="https://raw.githubusercontent.com/vokod/SettingViews/master/screenshots/Screenshot_20190215-140037.png" >

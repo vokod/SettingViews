@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_mock_attributes_rs.*
 import org.hamcrest.CoreMatchers.not
 
 @RunWith(AndroidJUnit4::class)
-class RadioGroupSettingAttributesTests {
+class RadiogroupSettingAttributesTests {
 
     @Rule
     @JvmField

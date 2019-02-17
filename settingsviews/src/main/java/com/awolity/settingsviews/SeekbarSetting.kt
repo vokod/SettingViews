@@ -22,8 +22,6 @@ class SeekbarSetting : ConstraintLayout {
     private var disabledTextColor: Int = 0
     private var titleTextColor: Int = 0
     private var descriptionTextColor: Int = 0
-    private var max: Int = 0
-    private var position: Int = 0
 
     constructor(context: Context) : super(context) {
         inflate()
@@ -63,7 +61,7 @@ class SeekbarSetting : ConstraintLayout {
 
         titleTextColor = a.getColor(
             R.styleable.SeekbarSetting_titleTextColor,
-            resources.getColor(R.color.text_description)
+            resources.getColor(R.color.text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
@@ -93,8 +91,8 @@ class SeekbarSetting : ConstraintLayout {
     }
 
     private fun setSeekBarFromAttributes(a: TypedArray) {
-        max = a.getInt(R.styleable.SeekbarSetting_max, 100)
-        position = a.getInt(R.styleable.SeekbarSetting_progress, 0)
+        val max = a.getInt(R.styleable.SeekbarSetting_max, 100)
+        val position = a.getInt(R.styleable.SeekbarSetting_progress, 0)
         setSeekBar(max, position)
     }
 
@@ -153,9 +151,15 @@ class SeekbarSetting : ConstraintLayout {
         if (position > max) {
             throw IllegalArgumentException(exceptionText)
         }
-        this.position = position
-        this.max = max
         seekBar!!.progress = position
+    }
+
+    fun getMax(): Int {
+        return seekBar!!.max
+    }
+
+    fun getPosition(): Int {
+        return seekBar!!.progress
     }
 
     fun setSeekBarListener(listener: SeekBar.OnSeekBarChangeListener) {
@@ -168,7 +172,7 @@ class SeekbarSetting : ConstraintLayout {
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
-       // ss.max = max
+        // ss.max = max
         //ss.position = position
         return ss
         // TODO: tesztelni a radiobuttonokat
@@ -180,7 +184,7 @@ class SeekbarSetting : ConstraintLayout {
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
-       // setSeekBar(ss.max, ss.position)
+        // setSeekBar(ss.max, ss.position)
     }
 
     companion object {

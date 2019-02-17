@@ -66,7 +66,7 @@ class SwitchSetting : ConstraintLayout {
 
         titleTextColor = a.getColor(
             R.styleable.SwitchSetting_titleTextColor,
-            resources.getColor(R.color.text_description)
+            resources.getColor(R.color.text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 

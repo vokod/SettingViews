@@ -83,13 +83,13 @@ class RadioGroupSettingAttributesTests {
     }
 
     @Test
-    fun test_Radiobutton2_IsSelected_SetFromAttributes() {
-        onView(withId(R.id.rb_two)).check(matches(isSelected()))
+    fun test_Radiobutton2_IsChecked_SetFromAttributes() {
+        onView(withId(R.id.rb_two)).check(matches(isChecked()))
     }
 
     @Test
     fun test_Radiobutton1_IsNotSelected_SetFromAttributes() {
-        onView(withId(R.id.rb_one)).check(matches(not(isSelected())))
+        onView(withId(R.id.rb_one)).check(matches(not(isChecked())))
     }
 
     private fun restartActivity() {

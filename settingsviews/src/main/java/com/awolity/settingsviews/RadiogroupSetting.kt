@@ -52,7 +52,6 @@ class RadiogroupSetting : ConstraintLayout {
         iconImageView = findViewById(R.id.iv_icon)
         firstButton = findViewById(R.id.rb_one)
         secondButton = findViewById(R.id.rb_two)
-
     }
 
     private fun setColorsFromAttributes(a: TypedArray) {

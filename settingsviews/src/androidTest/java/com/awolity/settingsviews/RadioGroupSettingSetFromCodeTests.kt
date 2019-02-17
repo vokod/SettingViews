@@ -290,8 +290,8 @@ class RadioGroupSettingSetFromCodeTests {
         activityRule.runOnUiThread {
             activityRule.activity.rs.setSelectedRadioButton(false)
         }
-        onView(withId(R.id.rb_two)).check(matches(isSelected()))
-        //onView(withId(R.id.rb_one)).check(matches(not(isSelected())))
+        onView(withId(R.id.rb_two)).check(matches(isChecked()))
+        onView(withId(R.id.rb_one)).check(matches(not(isChecked())))
     }
 
 
@@ -314,16 +314,16 @@ class RadioGroupSettingSetFromCodeTests {
     @Test
     fun clickRadioButton2_lookSelected() {
         onView(withId(R.id.rb_two)).perform(click())
-        onView(withId(R.id.rb_two)).check(matches(isSelected()))
-       // onView(withId(R.id.rb_one)).check(matches(not(isSelected())))
+        onView(withId(R.id.rb_two)).check(matches(isChecked()))
+        onView(withId(R.id.rb_one)).check(matches(not(isChecked())))
     }
 
     @Test
     fun clickRadioButton2_clickRadioButton1_lookSelected() {
         onView(withId(R.id.rb_two)).perform(click())
         onView(withId(R.id.rb_one)).perform(click())
-        onView(withId(R.id.rb_one)).check(matches(isSelected()))
-        //onView(withId(R.id.rb_two)).check(matches(not(isSelected())))
+        onView(withId(R.id.rb_one)).check(matches(isChecked()))
+        onView(withId(R.id.rb_two)).check(matches(not(isChecked())))
     }
 
     @Test

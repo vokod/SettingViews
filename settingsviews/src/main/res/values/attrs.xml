@@ -50,8 +50,8 @@
         <attr name="titleTextColor"/>
         <attr name="descriptionText"/>
         <attr name="descriptionTextColor"/>
-        <attr name="max" format="integer"/>
-        <attr name="progress" format="integer"/>
+        <attr name="seekbarMax" format="integer"/>
+        <attr name="seekbarProgress" format="integer"/>
     </declare-styleable>
 </resources>
 

@@ -91,8 +91,8 @@ class SeekbarSetting : ConstraintLayout {
     }
 
     private fun setSeekBarFromAttributes(a: TypedArray) {
-        val max = a.getInt(R.styleable.SeekbarSetting_max, 100)
-        val position = a.getInt(R.styleable.SeekbarSetting_progress, 0)
+        val max = a.getInt(R.styleable.SeekbarSetting_seekbarMax, 100)
+        val position = a.getInt(R.styleable.SeekbarSetting_seekbarProgress, 0)
         setSeekBar(max, position)
     }
 

@@ -6,7 +6,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import kotlinx.android.synthetic.main.activity_mock_attributes_bs.*
 import kotlinx.android.synthetic.main.activity_mock_defaults_rs.*
 import org.junit.Before
 import org.junit.Rule
@@ -84,7 +83,7 @@ class RadiogroupSettingDefaultValuesTests {
     @Test
     fun test_DefaultRadioButton_getSelected() {
         activityRule.runOnUiThread {
-            assert(activityRule.activity.rs.getSelectedRadioButton())
+            assert(activityRule.activity.rs.getSelectedRadioButton() == 0)
         }
     }
 

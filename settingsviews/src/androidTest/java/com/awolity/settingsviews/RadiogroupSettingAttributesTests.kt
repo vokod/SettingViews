@@ -7,13 +7,13 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.awolity.settingsviews.DrawableMatcher.withDrawable
+import com.awolity.settingsviews.TextColorMatcher.withTextColor
+import kotlinx.android.synthetic.main.activity_mock_attributes_rs.*
+import org.hamcrest.CoreMatchers.not
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import com.awolity.settingsviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_attributes_rs.*
-import org.hamcrest.CoreMatchers.not
 
 @RunWith(AndroidJUnit4::class)
 class RadiogroupSettingAttributesTests {
@@ -90,6 +90,13 @@ class RadiogroupSettingAttributesTests {
     @Test
     fun test_Radiobutton1_IsNotSelected_SetFromAttributes() {
         onView(withId(R.id.rb_one)).check(matches(not(isChecked())))
+    }
+
+    @Test
+    fun test_getSelected_IsSecond() {
+        activityRule.runOnUiThread {
+            assert(activityRule.activity.rs.getSelectedRadioButton() == 1)
+        }
     }
 
     private fun restartActivity() {

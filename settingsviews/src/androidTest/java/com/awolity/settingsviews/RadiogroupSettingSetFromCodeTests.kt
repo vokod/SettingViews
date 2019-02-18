@@ -7,14 +7,15 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
+import com.awolity.settingsviews.TextColorMatcher.withTextColor
+import junit.framework.Assert.fail
+import kotlinx.android.synthetic.main.activity_mock_defaults_rs.*
+import org.hamcrest.CoreMatchers.not
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import com.awolity.settingsviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_defaults_bs.*
-import kotlinx.android.synthetic.main.activity_mock_defaults_rs.*
-import org.hamcrest.CoreMatchers.not
+import java.lang.IllegalArgumentException
 import java.lang.IllegalStateException
 
 // TODO: listener invocation test
@@ -287,18 +288,24 @@ class RadiogroupSettingSetFromCodeTests {
     @Test
     fun setChecked_looksChecked() {
         activityRule.runOnUiThread {
-            activityRule.activity.rs.setSelectedRadioButton(false)
+            activityRule.activity.rs.setSelectedRadioButton(1)
         }
         onView(withId(R.id.rb_two)).check(matches(isChecked()))
         onView(withId(R.id.rb_one)).check(matches(not(isChecked())))
     }
 
-
     @Test
     fun setChecked_getChecked() {
         activityRule.runOnUiThread {
-            activityRule.activity.rs.setSelectedRadioButton(false)
-            assert(!activityRule.activity.rs.getSelectedRadioButton())
+            activityRule.activity.rs.setSelectedRadioButton(1)
+            assert(activityRule.activity.rs.getSelectedRadioButton() == 1)
+        }
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun setCheckedInvalid_ThrowException() {
+        activityRule.runOnUiThread {
+            activityRule.activity.rs.setSelectedRadioButton(2)
         }
     }
 
@@ -306,7 +313,7 @@ class RadiogroupSettingSetFromCodeTests {
     fun clickRadioButton2_getChecked() {
         onView(withId(R.id.rb_two)).perform(click())
         activityRule.runOnUiThread {
-            assert(!activityRule.activity.rs.getSelectedRadioButton())
+            assert(activityRule.activity.rs.getSelectedRadioButton() == 1)
         }
     }
 
@@ -330,7 +337,7 @@ class RadiogroupSettingSetFromCodeTests {
         onView(withId(R.id.rb_two)).perform(click())
         onView(withId(R.id.rb_one)).perform(click())
         activityRule.runOnUiThread {
-            assert(activityRule.activity.rs.getSelectedRadioButton())
+            assert(activityRule.activity.rs.getSelectedRadioButton() == 0)
         }
     }
 

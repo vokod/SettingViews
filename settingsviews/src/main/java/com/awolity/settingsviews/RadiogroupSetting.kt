@@ -102,8 +102,8 @@ class RadiogroupSetting : ConstraintLayout {
     }
 
     private fun setSelectedRadiobuttonFromAttributes(a:TypedArray){
-        val firstSelected = a.getBoolean(R.styleable.RadiogroupSetting_firstRadioButtonSelected, true)
-        setSelectedRadioButton(firstSelected)
+        val selectedButton = a.getInt(R.styleable.RadiogroupSetting_selected, 0)
+        setSelectedRadioButton(selectedButton)
     }
 
     fun setTitle(title: String) {
@@ -147,13 +147,20 @@ class RadiogroupSetting : ConstraintLayout {
         secondButton!!.setOnClickListener { listener.OnRadioButtonClicked(1) }
     }
 
-    fun setSelectedRadioButton(firstSelected: Boolean) {
-        firstButton!!.isChecked = firstSelected
-        secondButton!!.isChecked = !firstSelected
+    fun setSelectedRadioButton(selectedButton: Int) {
+        if (selectedButton == FIRST_BUTTON) {
+            firstButton!!.isChecked = true
+            secondButton!!.isChecked = false
+        } else if (selectedButton == SECOND_BUTTON) {
+            firstButton!!.isChecked = false
+            secondButton!!.isChecked = true
+        } else {
+            throw IllegalArgumentException(context.getString(R.string.radiogroup_setting_illegal_selected))
+        }
     }
 
-    fun getSelectedRadioButton(): Boolean {
-        return firstButton!!.isChecked
+    fun getSelectedRadioButton(): Int {
+        return if (firstButton!!.isChecked) FIRST_BUTTON else SECOND_BUTTON
     }
 
     fun setDisabledTextColor(color: Int) {
@@ -213,6 +220,9 @@ class RadiogroupSetting : ConstraintLayout {
 
     companion object {
         private val TAG = "RadiogroupSetting"
+        const val FIRST_BUTTON = 0
+        const val SECOND_BUTTON = 1
+
         private fun getInPx(context: Context, dp: Int): Int {
             val scale = context.resources.displayMetrics.density
             return (dp * scale + 0.5f).toInt()

@@ -37,7 +37,7 @@
         <attr name="titleTextColor"/>
         <attr name="descriptionText"/>
         <attr name="descriptionTextColor"/>
-        <attr name="firstRadioButtonSelected" format="boolean"/>
+        <attr name="selected" format="integer"/>
         <attr name="radioButtonLabelTextColor" format="color"/>
         <attr name="firstRadioButtonText" format="string" localization="suggested"/>
         <attr name="secondRadioButtonText" format="string" localization="suggested"/>

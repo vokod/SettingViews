@@ -2,6 +2,7 @@
     <string name="app_name">SettingsViews</string>
     <string name="button_setting_icon_content_description">Icon of setting</string>
     <string name="button_setting_checkmark_content_description">Checkmark of setting</string>
+    <string name="radiogroup_setting_illegal_selected">Illegal value for selected radiobutton</string>
 
     <string name="test_title">Title text</string>
     <string name="test_description">Description text, a little longer, can be multiple lines, lorem ipsum dolor sit amet</string>

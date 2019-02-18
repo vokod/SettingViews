@@ -11,3 +11,22 @@ Types:
 - Switch Setting
 
 <img src="https://raw.githubusercontent.com/vokod/SettingViews/master/screenshots/Screenshot_20190215-140037.png" width="400" >
+
+## Dependency
+
+Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
+
+```gradle
+allprojects {
+	repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+Then, add the library to your module `build.gradle`
+```	
+dependencies {
+	        implementation 'com.github.vokod:SettingViews:0.2'
+	}
+```

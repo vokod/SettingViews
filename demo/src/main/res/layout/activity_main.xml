@@ -149,8 +149,8 @@
                 custom:titleTextColor="@color/colorText"
                 custom:disabledColor="@color/colorDisabled"
                 custom:descriptionTextColor="@color/colorTextDark"
-                custom:max="100"
-                custom:progress="22"
+                custom:seekbarMax="100"
+                custom:seekbarProgress="22"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/rs"/>

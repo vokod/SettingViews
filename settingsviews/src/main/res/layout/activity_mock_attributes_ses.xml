@@ -15,6 +15,6 @@
             custom:disabledColor="@color/test_text_disabled"
             custom:titleTextColor="@color/test_text_title"
             custom:descriptionTextColor="@color/test_text_description"
-            custom:max="@integer/test_seekbar_max"
-            custom:progress="@integer/test_seekbar_progress"/>
+            custom:seekbarMax="@integer/test_seekbar_max"
+            custom:seekbarProgress="@integer/test_seekbar_progress"/>
 </LinearLayout>

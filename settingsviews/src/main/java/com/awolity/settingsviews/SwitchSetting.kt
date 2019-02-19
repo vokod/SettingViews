@@ -2,7 +2,6 @@ package com.awolity.settingsviews
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.os.Build
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -23,6 +22,7 @@ class SwitchSetting : ConstraintLayout {
     private var disabledTextColor: Int = 0
     private var titleTextColor: Int = 0
     private var descriptionTextColor: Int = 0
+    private var iconResource: Int = 0
 
     var checked: Boolean
         get() = aSwitch!!.isChecked
@@ -120,6 +120,7 @@ class SwitchSetting : ConstraintLayout {
 
 
     fun setIcon(iconResource: Int) {
+        this.iconResource = iconResource
         iconImageView!!.setImageResource(iconResource)
     }
 
@@ -162,6 +163,9 @@ class SwitchSetting : ConstraintLayout {
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
+        ss.titleText = titleTextView!!.text.toString()
+        ss.descriptionText = descriptionTextView!!.text.toString()
+        ss.icon = iconResource
         return ss
     }
 
@@ -171,6 +175,9 @@ class SwitchSetting : ConstraintLayout {
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
+        setTitle(ss.titleText)
+        setDescription(ss.descriptionText)
+        setIcon(ss.icon)
     }
 
     companion object {

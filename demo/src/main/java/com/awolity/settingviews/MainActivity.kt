@@ -99,12 +99,5 @@ class MainActivity : AppCompatActivity() {
             rs.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
             es.setDisabledTextColor(resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
         }
-
-        btn_change_background_color.setOnClickListener{
-            bs.setBackgroundColor( resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            ss.setBackgroundColor( resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            rs.setBackgroundColor( resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-            es.setBackgroundColor( resources.getColor(Constants.colors[Random.nextInt(Constants.colors.size)]))
-        }
     }
 }

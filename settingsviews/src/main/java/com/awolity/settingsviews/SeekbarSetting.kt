@@ -23,6 +23,7 @@ class SeekbarSetting : ConstraintLayout {
     private var disabledTextColor: Int = 0
     private var titleTextColor: Int = 0
     private var descriptionTextColor: Int = 0
+    private var iconResource: Int = 0
 
     constructor(context: Context) : super(context) {
         inflate()
@@ -116,6 +117,7 @@ class SeekbarSetting : ConstraintLayout {
     }
 
     fun setIcon(iconResource: Int) {
+        this.iconResource = iconResource
         iconImageView!!.setImageResource(iconResource)
     }
 
@@ -173,10 +175,10 @@ class SeekbarSetting : ConstraintLayout {
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
-        // ss.max = max
-        //ss.position = position
+        ss.titleText = titleTextView!!.text.toString()
+        ss.descriptionText = descriptionTextView!!.text.toString()
+        ss.icon = iconResource
         return ss
-        // TODO: tesztelni a radiobuttonokat
     }
 
     public override fun onRestoreInstanceState(state: Parcelable) {
@@ -185,7 +187,9 @@ class SeekbarSetting : ConstraintLayout {
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
-        // setSeekBar(ss.max, ss.position)
+        setTitle(ss.titleText)
+        setDescription(ss.descriptionText)
+        setIcon(ss.icon)
     }
 
     companion object {

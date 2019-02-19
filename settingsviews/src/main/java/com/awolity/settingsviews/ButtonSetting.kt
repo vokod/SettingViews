@@ -25,6 +25,7 @@ class ButtonSetting : ConstraintLayout {
     private var disabledTextColor: Int = 0
     private var titleTextColor: Int = 0
     private var descriptionTextColor: Int = 0
+    private var iconResource: Int = 0
 
     var isCheckable: Boolean
         get() = checkable
@@ -33,8 +34,9 @@ class ButtonSetting : ConstraintLayout {
             if (checkable) {
                 if (checked) {
                     checkmarkImageView!!.visibility = View.VISIBLE
+                    checked = false
                 } else {
-                    checkmarkImageView!!.visibility = View.GONE
+                    checkmarkImageView!!.visibility = View.INVISIBLE
                 }
             } else {
                 checkmarkImageView!!.visibility = View.GONE
@@ -45,16 +47,16 @@ class ButtonSetting : ConstraintLayout {
         get() = if (checkable) {
             checkmarkImageView!!.visibility == View.VISIBLE
         } else {
-            throw IllegalStateException("ButtonSetting is not checkable")
+            false
         }
-        set(checked) = if (checkable) {
-            if (checked) {
-                checkmarkImageView!!.visibility = View.VISIBLE
-            } else {
-                checkmarkImageView!!.visibility = View.GONE
+        set(checked) {
+            if (checkable) {
+                if (checked) {
+                    checkmarkImageView!!.visibility = View.VISIBLE
+                } else {
+                    checkmarkImageView!!.visibility = View.INVISIBLE
+                }
             }
-        } else {
-            throw IllegalStateException("ButtonSetting is not checkable")
         }
 
     constructor(context: Context) : super(context) {
@@ -127,7 +129,7 @@ class ButtonSetting : ConstraintLayout {
 
     private fun setCheckableFromAttributes(a: TypedArray) {
         checkable = a.getBoolean(R.styleable.ButtonSetting_isCheckable, false)
-        if(checkable){
+        if (checkable) {
             checked = a.getBoolean(R.styleable.ButtonSetting_checked, false)
         }
     }
@@ -170,6 +172,7 @@ class ButtonSetting : ConstraintLayout {
     }
 
     fun setIcon(iconResource: Int) {
+        this.iconResource = iconResource
         iconImageView!!.setImageResource(iconResource)
     }
 
@@ -220,24 +223,7 @@ class ButtonSetting : ConstraintLayout {
                 .scaleX(1f)
                 .rotation(0f)
                 .setInterpolator(DecelerateInterpolator(1.4f))
-                .setDuration(ANIMATION_DURATION)
-                .setListener(object : Animator.AnimatorListener {
-                    override fun onAnimationStart(animator: Animator) {
-
-                    }
-
-                    override fun onAnimationEnd(animator: Animator) {
-                        checkmarkImageView!!.visibility = View.VISIBLE
-                    }
-
-                    override fun onAnimationCancel(animator: Animator) {
-
-                    }
-
-                    override fun onAnimationRepeat(animator: Animator) {
-
-                    }
-                })
+                .duration = ANIMATION_DURATION
         } else {
             throw IllegalStateException("ButtonSetting is not checkable")
         }
@@ -291,6 +277,11 @@ class ButtonSetting : ConstraintLayout {
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
+        ss.titleText = titleTextView!!.text.toString()
+        ss.descriptionText = descriptionTextView!!.text.toString()
+        ss.icon = iconResource
+        ss.checkable = checkable
+        ss.checked = checked
         return ss
     }
 
@@ -300,5 +291,10 @@ class ButtonSetting : ConstraintLayout {
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
+        setTitle(ss.titleText)
+        setDescription(ss.descriptionText)
+        setIcon(ss.icon)
+        isCheckable = ss.checkable
+        checked = ss.checked
     }
 }

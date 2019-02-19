@@ -23,6 +23,7 @@ class RadiogroupSetting : ConstraintLayout {
     private var titleTextColor: Int = 0
     private var descriptionTextColor: Int = 0
     private var radioButtonLabelTextColor: Int = 0
+    private var iconResource: Int = 0
 
     constructor(context: Context) : super(context) {
         inflate()
@@ -126,6 +127,7 @@ class RadiogroupSetting : ConstraintLayout {
     }
 
     fun setIcon(iconResource: Int) {
+        this.iconResource = iconResource
         iconImageView!!.setImageResource(iconResource)
     }
 
@@ -208,6 +210,11 @@ class RadiogroupSetting : ConstraintLayout {
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor
+        ss.titleText = titleTextView!!.text.toString()
+        ss.descriptionText = descriptionTextView!!.text.toString()
+        ss.radiobutton1Text = firstButton!!.text.toString()
+        ss.radiobutton2Text = secondButton!!.text.toString()
+        ss.icon = iconResource
         return ss
     }
 
@@ -217,6 +224,10 @@ class RadiogroupSetting : ConstraintLayout {
         setDescriptionTextColor(ss.descriptionColorValue)
         setDisabledTextColor(ss.disabledColorValue)
         setTitleTextColor(ss.titleColorValue)
+        setTitle(ss.titleText)
+        setDescription(ss.descriptionText)
+        setRadioButtonsLabel(ss.radiobutton1Text,ss.radiobutton2Text)
+        setIcon(ss.icon)
     }
 
     companion object {

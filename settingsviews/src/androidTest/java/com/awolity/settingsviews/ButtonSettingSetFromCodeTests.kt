@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_mock_defaults_bs.*
 import org.hamcrest.CoreMatchers.not
 import java.lang.IllegalStateException
 
+// TODO: checkable teszt (ha chekable, akkor a checkable-iv-nek kell a hely
+
 @RunWith(AndroidJUnit4::class)
 class ButtonSettingSetFromCodeTests {
 
@@ -98,14 +100,12 @@ class ButtonSettingSetFromCodeTests {
 
     @Test
     fun setTitle_lookTitle() {
-        val title = "This is the new Title"
         activityRule.runOnUiThread { activityRule.activity.bs.setTitle(title) }
         onView(withId(R.id.tv_title)).check(matches(withText(title)))
     }
 
     @Test
     fun setDescription_lookDescription() {
-        val description = "This is the new description. Lorem ipsum dolor sit amet"
         activityRule.runOnUiThread { activityRule.activity.bs.setTitle(description) }
         onView(withId(R.id.tv_title)).check(matches(withText(description)))
     }
@@ -248,14 +248,21 @@ class ButtonSettingSetFromCodeTests {
         onView(withId(R.id.iv_checkmark)).check(matches(not(isDisplayed())))
     }
 
-    @Test(expected = IllegalStateException::class)
-    fun setNotCheckable_setChecked_throwsException() {
-        activityRule.runOnUiThread { activityRule.activity.bs.checked = true }
+
+    fun setNotCheckable_setChecked_getChecked_returnFalse() {
+        activityRule.runOnUiThread {
+            activityRule.activity.bs.isCheckable = false
+            activityRule.activity.bs.checked = true
+            assert(!activityRule.activity.bs.checked)
+        }
     }
 
-    @Test(expected = IllegalStateException::class)
-    fun setNotCheckable_getChecked_throwsException() {
-        activityRule.runOnUiThread { assert(activityRule.activity.bs.checked) }
+    @Test
+    fun setNotCheckable_getChecked_returnFalse() {
+        activityRule.runOnUiThread {
+            activityRule.activity.bs.isCheckable = false
+            assert(!activityRule.activity.bs.checked)
+        }
     }
 
     @Test

@@ -13,7 +13,7 @@
             tools:context=".MainActivity">
 
         <Button
-                android:text="Change Titlel"
+                android:text="Change Titlle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_change_label" app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"/>
         <Button
-                android:text="change Description color"
+                android:text="change Desc. color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_change_description_color"
@@ -80,14 +80,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/btn_change_title_color"/>
-        <Button
-                android:text="change Bg color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_change_background_color"
-                app:layout_constraintTop_toTopOf="@+id/btn_change_disabled_color"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp"/>
+
 
         <com.awolity.settingsviews.ButtonSetting
                 android:id="@+id/bs"
@@ -154,16 +147,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/rs"/>
-
-        <com.awolity.settingsviews.ButtonSetting
-                android:id="@+id/bs2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-
-                app:layout_constraintTop_toBottomOf="@+id/es"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.getColor
 
 // TODO: listenert megadni xml-ből?
 
@@ -56,18 +57,18 @@ class SeekbarSetting : ConstraintLayout {
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
             R.styleable.SeekbarSetting_disabledColor,
-            resources.getColor(R.color.text_disabled)
+            getColor(context, R.color.text_disabled)
         )
 
         titleTextColor = a.getColor(
             R.styleable.SeekbarSetting_titleTextColor,
-            resources.getColor(R.color.text_title)
+            getColor(context, R.color.text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
             R.styleable.SeekbarSetting_descriptionTextColor,
-            resources.getColor(R.color.text_description)
+            getColor(context, R.color.text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }

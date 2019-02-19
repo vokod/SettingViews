@@ -13,6 +13,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.getColor
 
 class ButtonSetting : ConstraintLayout {
     private var titleTextView: TextView? = null
@@ -93,18 +94,18 @@ class ButtonSetting : ConstraintLayout {
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
             R.styleable.ButtonSetting_disabledColor,
-            resources.getColor(R.color.text_disabled)
+            getColor(context, R.color.text_disabled)
         )
 
         titleTextColor = a.getColor(
             R.styleable.ButtonSetting_titleTextColor,
-            resources.getColor(R.color.text_title)
+            getColor(context, R.color.text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
             R.styleable.ButtonSetting_descriptionTextColor,
-            resources.getColor(R.color.text_description)
+            getColor(context, R.color.text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }
@@ -286,7 +287,7 @@ class ButtonSetting : ConstraintLayout {
 
     public override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
-        val ss = SettingSavedState(superState)
+        val ss = SettingSavedState(superState!!)
         ss.descriptionColorValue = descriptionTextColor
         ss.disabledColorValue = disabledTextColor
         ss.titleColorValue = titleTextColor

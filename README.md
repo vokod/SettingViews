@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/vokod/SettingViews.svg)](https://jitpack.io/#vokod/SettingViews)
+
 # SettingViews
 Android compound views for managing settings
 
@@ -27,6 +29,6 @@ allprojects {
 Then, add the library to your module `build.gradle`
 ```	
 dependencies {
-	        implementation 'com.github.vokod:SettingViews:0.2'
+	        implementation 'com.github.vokod:SettingViews:LATEST'
 	}
 ```

@@ -82,7 +82,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_change_title_color"/>
 
 
-        <com.awolity.settingsviews.ButtonSetting
+        <com.awolity.settingviews.ButtonSetting
                 android:id="@+id/bs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-        <com.awolity.settingsviews.SwitchSetting
+        <com.awolity.settingviews.SwitchSetting
                 android:id="@+id/ss"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -111,9 +111,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/bs">
-        </com.awolity.settingsviews.SwitchSetting>
+        </com.awolity.settingviews.SwitchSetting>
 
-        <com.awolity.settingsviews.RadiogroupSetting
+        <com.awolity.settingviews.RadiogroupSetting
                 android:id="@+id/rs"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/ss"/>
 
 
-        <com.awolity.settingsviews.SeekbarSetting
+        <com.awolity.settingviews.SeekbarSetting
                 android:id="@+id/es"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

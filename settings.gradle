@@ -1,1 +1,1 @@
-include ':demo', ':settingsviews'
+include ':demo', ':settingviews'

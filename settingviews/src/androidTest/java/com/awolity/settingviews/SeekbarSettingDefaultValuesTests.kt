@@ -1,0 +1,114 @@
+package com.awolity.settingviews
+
+import android.content.Intent
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
+import kotlinx.android.synthetic.main.activity_mock_defaults_ses.*
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
+
+@RunWith(AndroidJUnit4::class)
+class SeekbarSettingDefaultValuesTests {
+
+    @Rule
+    @JvmField
+    val activityRule = ActivityTestRule<MockActivity>(MockActivity::class.java, true, false)
+
+    @Before
+    fun setup() {
+        MockActivity.layout = R.layout.activity_mock_defaults_ses
+        restartActivity()
+    }
+
+    @Test
+    fun test_DefaultTitleText() {
+        onView(withId(R.id.tv_title)).check(matches(withText("")))
+    }
+
+    @Test
+    fun test_DefaultDescriptionText() {
+        onView(withId(R.id.tv_desc)).check(matches(withText("")))
+    }
+
+    @Test
+    fun test_DefaultTitleColor() {
+        onView(withId(R.id.tv_title)).check(
+            matches(
+                TextColorMatcher.withTextColor(
+                    R.color.text_title,
+                    activityRule.activity.resources
+                )
+            )
+        )
+    }
+
+    @Test
+    fun test_DefaultDescriptionColor() {
+        onView(withId(R.id.tv_desc)).check(
+            matches(
+                TextColorMatcher.withTextColor(
+                    R.color.text_description,
+                    activityRule.activity.resources
+                )
+            )
+        )
+    }
+
+    @Test
+    fun test_DefaultIcon() {
+        onView(withId(R.id.iv_icon))
+            .check(matches(DrawableMatcher.withDrawable(R.drawable.ic_android)))
+    }
+
+    @Test
+    fun test_DefaultDisabledTitleColor() {
+        activityRule.runOnUiThread { activityRule.activity.ses.isEnabled = false }
+        onView(withId(R.id.tv_title)).check(
+            matches(
+                TextColorMatcher.withTextColor(
+                    R.color.text_disabled,
+                    activityRule.activity.resources
+                )
+            )
+        )
+    }
+
+    @Test
+    fun test_DefaultDisabledDescriptionColor() {
+        activityRule.runOnUiThread { activityRule.activity.ses.isEnabled = false }
+        onView(withId(R.id.tv_desc)).check(
+            matches(
+                TextColorMatcher.withTextColor(
+                    R.color.text_disabled,
+                    activityRule.activity.resources
+                )
+            )
+        )
+    }
+
+    @Test
+    fun test_SeekbarDefaultPosition() {
+        activityRule.runOnUiThread {
+            assert(activityRule.activity.ses.getPosition() == 0)
+        }
+    }
+
+    @Test
+    fun test_SeekbarDefaultMaxValue() {
+        activityRule.runOnUiThread {
+            assert(activityRule.activity.ses.getMax() == 100)
+        }
+    }
+
+    private fun restartActivity() {
+        if (activityRule.activity != null) {
+            activityRule.finishActivity()
+        }
+        activityRule.launchActivity(Intent())
+    }
+}

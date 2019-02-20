@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import android.widget.SeekBar
 import android.widget.Toast
-import com.awolity.settingsviews.RadiogroupSetting
+import com.awolity.settingviews.RadiogroupSetting
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 

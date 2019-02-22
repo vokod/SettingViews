@@ -4,7 +4,7 @@
 
     <application>
         <activity android:name="com.awolity.settingviews.MockActivity"
-                  android:theme="@style/AppTheme" >
+                  android:theme="@style/SettingViewsMockAppTheme" >
         </activity>
     </application>
 

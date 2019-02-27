@@ -13,7 +13,11 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.getColor
 
-class SwitchSetting : ConstraintLayout {
+class SwitchSetting @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private var titleTextView: TextView? = null
     private var descriptionTextView: TextView? = null
@@ -30,11 +34,7 @@ class SwitchSetting : ConstraintLayout {
             aSwitch!!.isChecked = checked
         }
 
-    constructor(context: Context) : super(context) {
-        inflate()
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+ init {
         inflate()
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.SwitchSetting, 0, 0)
         try {
@@ -45,10 +45,6 @@ class SwitchSetting : ConstraintLayout {
         } finally {
             a.recycle()
         }
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        inflate()
     }
 
     private fun inflate() {

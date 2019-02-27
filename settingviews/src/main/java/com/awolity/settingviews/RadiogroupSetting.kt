@@ -13,23 +13,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.getColor
 
 // TODO: valami enumot, vagy inline class-t a selected value-hoz
-class RadiogroupSetting : ConstraintLayout {
-    private var titleTextView: TextView? = null
-    private var descriptionTextView: TextView? = null
-    private var iconImageView: ImageView? = null
-    private var firstButton: RadioButton? = null
-    private var secondButton: RadioButton? = null
-    private var disabledTextColor: Int = 0
-    private var titleTextColor: Int = 0
-    private var descriptionTextColor: Int = 0
-    private var radioButtonLabelTextColor: Int = 0
-    private var iconResource: Int = 0
+class RadiogroupSetting @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-    constructor(context: Context) : super(context) {
-        inflate()
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    init {
         inflate()
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.RadiogroupSetting, 0, 0)
         try {
@@ -42,9 +32,16 @@ class RadiogroupSetting : ConstraintLayout {
         }
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        inflate()
-    }
+    private var titleTextView: TextView? = null
+    private var descriptionTextView: TextView? = null
+    private var iconImageView: ImageView? = null
+    private var firstButton: RadioButton? = null
+    private var secondButton: RadioButton? = null
+    private var disabledTextColor: Int = 0
+    private var titleTextColor: Int = 0
+    private var descriptionTextColor: Int = 0
+    private var radioButtonLabelTextColor: Int = 0
+    private var iconResource: Int = 0
 
     private fun inflate() {
         isSaveEnabled = true

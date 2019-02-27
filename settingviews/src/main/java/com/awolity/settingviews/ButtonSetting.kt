@@ -12,10 +12,29 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.getColor
 
-class ButtonSetting : ConstraintLayout {
+class ButtonSetting @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ConstraintLayout(context, attrs, defStyleAttr) {
+
+    init {
+        inflate()
+        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.ButtonSetting, 0, 0)
+        try {
+            setColorsFromAttributes(a)
+            setIconsFromAttributes(a)
+            setLabelsFromAttributes(a)
+            setCheckableFromAttributes(a)
+        } finally {
+            a.recycle()
+        }
+    }
+
     private var titleTextView: TextView? = null
     private var descriptionTextView: TextView? = null
     private var iconImageView: ImageView? = null
@@ -58,29 +77,6 @@ class ButtonSetting : ConstraintLayout {
                 }
             }
         }
-
-    constructor(context: Context) : super(context) {
-        inflate()
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        inflate()
-        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.ButtonSetting, 0, 0)
-        try {
-            setColorsFromAttributes(a)
-            setIconsFromAttributes(a)
-            setLabelsFromAttributes(a)
-            setCheckableFromAttributes(a)
-        } finally {
-            a.recycle()
-        }
-    }
-
-    constructor(
-        context: Context, attrs: AttributeSet?, defStyleAttr: Int
-    ) : super(context, attrs, defStyleAttr) {
-        inflate()
-    }
 
     private fun inflate() {
         isSaveEnabled = true

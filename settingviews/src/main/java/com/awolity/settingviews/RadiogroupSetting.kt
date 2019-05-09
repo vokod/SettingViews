@@ -73,7 +73,7 @@ class RadiogroupSetting @JvmOverloads constructor(
 
         radioButtonLabelTextColor = a.getColor(
             R.styleable.RadiogroupSetting_radioButtonLabelTextColor,
-            resources.getColor(R.color.text_description)
+            getColor(context, R.color.text_description)
         )
         setRadioButtonLabelColor(radioButtonLabelTextColor)
     }

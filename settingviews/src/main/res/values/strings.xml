@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">settingviews</string>
     <string name="button_setting_icon_content_description">Icon of setting</string>
     <string name="button_setting_checkmark_content_description">Checkmark of setting</string>
     <string name="radiogroup_setting_illegal_selected">Illegal value for selected radiobutton</string>

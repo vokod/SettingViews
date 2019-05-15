@@ -13,10 +13,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.awolity.settingviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_defaults_bs.*
 import kotlinx.android.synthetic.main.activity_mock_defaults_rs.*
-import org.hamcrest.CoreMatchers.not
-import java.lang.IllegalStateException
 
 @RunWith(AndroidJUnit4::class)
 class RadiogroupSettingSaveStateTests {
@@ -43,13 +40,13 @@ class RadiogroupSettingSaveStateTests {
     @Test
     fun setTitleColor_Rotate_lookTitleColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.rs.setTitleTextColor(activityRule.activity.getColor(R.color.test_text_title))
+            activityRule.activity.rs.setTitleTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_title))
             rotate()
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_title,
+                    R.color.color_SettingViews_test_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -68,13 +65,13 @@ class RadiogroupSettingSaveStateTests {
     @Test
     fun setDescriptionColor_Rotate_lookDescriptionColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.rs.setDescriptionTextColor(activityRule.activity.getColor(R.color.test_text_description))
+            activityRule.activity.rs.setDescriptionTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_description))
             rotate()
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_description,
+                    R.color.color_SettingViews_test_text_description,
                     activityRule.activity.resources
                 )
             )

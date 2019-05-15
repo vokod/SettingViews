@@ -28,12 +28,12 @@ class SeekbarSettingAttributesTests {
 
     @Test
     fun test_titleText_SetFromAttributes() {
-        onView(withId(R.id.tv_title)).check(matches(withText(R.string.test_title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(R.string.SettingViews_test_title)))
     }
 
     @Test
     fun test_Description_TextSetFromAttributes() {
-        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.test_description)))
+        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.SettingViews_test_description)))
     }
 
     @Test
@@ -41,7 +41,7 @@ class SeekbarSettingAttributesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_title,
+                    R.color.color_SettingViews_test_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -53,7 +53,7 @@ class SeekbarSettingAttributesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_description,
+                    R.color.color_SettingViews_test_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -66,7 +66,7 @@ class SeekbarSettingAttributesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_disabled,
+                    R.color.color_SettingViews_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -79,7 +79,7 @@ class SeekbarSettingAttributesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_disabled,
+                    R.color.color_SettingViews_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -95,7 +95,7 @@ class SeekbarSettingAttributesTests {
     fun test_Seekbar_Max_SetFromAttributes() {
         activityRule.runOnUiThread {
             assert(activityRule.activity.ses.getMax()
-                    == activityRule.activity.resources.getInteger(R.integer.test_seekbar_max))
+                    == activityRule.activity.resources.getInteger(R.integer.SettingViews_test_seekbar_max))
         }
     }
 
@@ -103,7 +103,7 @@ class SeekbarSettingAttributesTests {
     fun test_Seekbar_Progress_SetFromAttributes() {
         activityRule.runOnUiThread {
             assert(activityRule.activity.ses.getPosition()
-                    == activityRule.activity.resources.getInteger(R.integer.test_seekbar_progress))
+                    == activityRule.activity.resources.getInteger(R.integer.SettingViews_test_seekbar_progress))
         }
     }
 

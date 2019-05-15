@@ -30,51 +30,51 @@ class RadiogroupSettingAttributesTests {
 
     @Test
     fun test_titleText_SetFromAttributes() {
-        onView(withId(R.id.tv_title)).check(matches(withText(R.string.test_title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(R.string.SettingViews_test_title)))
     }
 
     @Test
     fun test_Description_TextSetFromAttributes() {
-        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.test_description)))
+        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.SettingViews_test_description)))
     }
 
     @Test
     fun test_Radiobutton1Label_TextSetFromAttributes() {
-        onView(withId(R.id.rb_one)).check(matches(withText(R.string.test_text_1)))
+        onView(withId(R.id.rb_one)).check(matches(withText(R.string.SettingViews_test_text_1)))
     }
 
     @Test
     fun test_Radiobutton2Label_TextSetFromAttributes() {
-        onView(withId(R.id.rb_two)).check(matches(withText(R.string.test_text_2)))
+        onView(withId(R.id.rb_two)).check(matches(withText(R.string.SettingViews_test_text_2)))
     }
 
     @Test
     fun test_TitleColor_SetFromAttributes() {
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_title, activityRule.activity.resources)))
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.color_SettingViews_test_text_title, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DescriptionColor_SetFromAttributes() {
-        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.test_text_description, activityRule.activity.resources)))
+        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.color_SettingViews_test_text_description, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DisabledTitleColor_SetFromAttribute() {
         activityRule.runOnUiThread { activityRule.activity.rs.isEnabled = false }
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.color_SettingViews_test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DisabledDescriptionColor_SetFromAttribute() {
         activityRule.runOnUiThread { activityRule.activity.rs.isEnabled = false }
-        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.color_SettingViews_test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DisabledRadioButtonLabelColor_SetFromAttribute() {
         activityRule.runOnUiThread { activityRule.activity.rs.isEnabled = false }
-        onView(withId(R.id.rb_one)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
-        onView(withId(R.id.rb_two)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+        onView(withId(R.id.rb_one)).check(matches(withTextColor(R.color.color_SettingViews_test_text_disabled, activityRule.activity.resources)))
+        onView(withId(R.id.rb_two)).check(matches(withTextColor(R.color.color_SettingViews_test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test

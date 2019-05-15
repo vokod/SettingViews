@@ -6,7 +6,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import kotlinx.android.synthetic.main.activity_mock_defaults_ses.*
 import kotlinx.android.synthetic.main.activity_mock_defaults_ss.*
 import org.junit.Before
 import org.junit.Rule
@@ -41,7 +40,7 @@ class SwitchSettingDefaultValuesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_title,
+                    R.color.color_SettingViews_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -53,7 +52,7 @@ class SwitchSettingDefaultValuesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_description,
+                    R.color.color_SettingViews_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -72,7 +71,7 @@ class SwitchSettingDefaultValuesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_disabled,
+                    R.color.color_SettingViews_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -85,7 +84,7 @@ class SwitchSettingDefaultValuesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_disabled,
+                    R.color.color_SettingViews_text_disabled,
                     activityRule.activity.resources
                 )
             )

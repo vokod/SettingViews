@@ -44,7 +44,7 @@ class SwitchSettingSetFromCodeTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.text_disabled,
+                    R.color.color_SettingViews_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -57,7 +57,7 @@ class SwitchSettingSetFromCodeTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.text_disabled,
+                    R.color.color_SettingViews_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -87,7 +87,7 @@ class SwitchSettingSetFromCodeTests {
             activityRule.activity.ss.isEnabled = false
             activityRule.activity.ss.isEnabled = true
         }
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.text_title, activityRule.activity.resources)))
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.color_SettingViews_text_title, activityRule.activity.resources)))
     }
 
     @Test
@@ -99,7 +99,7 @@ class SwitchSettingSetFromCodeTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.text_description,
+                    R.color.color_SettingViews_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -127,13 +127,13 @@ class SwitchSettingSetFromCodeTests {
     @Test
     fun setTitleColor_lookTitleColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.ss.setTitleTextColor(activityRule.activity.getColor(R.color.test_text_title))
+            activityRule.activity.ss.setTitleTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_title))
             activityRule.activity.ss.setTitle(title)
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_title,
+                    R.color.color_SettingViews_test_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -143,12 +143,12 @@ class SwitchSettingSetFromCodeTests {
     @Test
     fun setDescriptionColor_lookDescriptionColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.ss.setDescriptionTextColor(activityRule.activity.getColor(R.color.test_text_description))
+            activityRule.activity.ss.setDescriptionTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_description))
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_description,
+                    R.color.color_SettingViews_test_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -160,12 +160,12 @@ class SwitchSettingSetFromCodeTests {
         activityRule.runOnUiThread {
             activityRule.activity.ss.setTitle(title)
             activityRule.activity.ss.isEnabled = false
-            activityRule.activity.ss.setDisabledTextColor(activityRule.activity.getColor(R.color.test_text_disabled))
+            activityRule.activity.ss.setDisabledTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_disabled))
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_disabled,
+                    R.color.color_SettingViews_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -175,14 +175,14 @@ class SwitchSettingSetFromCodeTests {
     @Test
     fun setDisabledColorDescription_lookDisabledColorDescription() {
         activityRule.runOnUiThread {
-            activityRule.activity.ss.setDisabledTextColor(activityRule.activity.getColor(R.color.test_text_disabled))
+            activityRule.activity.ss.setDisabledTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_disabled))
             activityRule.activity.ss.isEnabled = false
             activityRule.activity.ss.setDescription(description)
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.test_text_disabled,
+                    R.color.color_SettingViews_test_text_disabled,
                     activityRule.activity.resources
                 )
             )

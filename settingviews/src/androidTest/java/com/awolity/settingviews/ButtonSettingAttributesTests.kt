@@ -29,34 +29,34 @@ class ButtonSettingAttributesTests {
 
     @Test
     fun test_titleText_SetFromAttributes() {
-        onView(withId(R.id.tv_title)).check(matches(withText(R.string.test_title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(R.string.SettingViews_test_title)))
     }
 
     @Test
     fun test_Description_TextSetFromAttributes() {
-        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.test_description)))
+        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.SettingViews_test_description)))
     }
 
     @Test
     fun test_TitleColor_SetFromAttributes() {
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_title, activityRule.activity.resources)))
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.color_SettingViews_test_text_title, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DescriptionColor_SetFromAttributes() {
-        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.test_text_description, activityRule.activity.resources)))
+        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.color_SettingViews_test_text_description, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DisabledTitleColor_SetFromAttribute() {
         activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.color_SettingViews_test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test
     fun test_DisabledDescriptionColor_SetFromAttribute() {
         activityRule.runOnUiThread { activityRule.activity.bs.isEnabled = false }
-        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.test_text_disabled, activityRule.activity.resources)))
+        onView(withId(R.id.tv_desc)).check(matches(withTextColor(R.color.color_SettingViews_test_text_disabled, activityRule.activity.resources)))
     }
 
     @Test

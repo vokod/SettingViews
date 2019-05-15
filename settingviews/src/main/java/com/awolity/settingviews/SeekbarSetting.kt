@@ -54,18 +54,18 @@ class SeekbarSetting @JvmOverloads constructor(
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
             R.styleable.SeekbarSetting_disabledColor,
-            getColor(context, R.color.text_disabled)
+            getColor(context, R.color.color_SettingViews_text_disabled)
         )
 
         titleTextColor = a.getColor(
             R.styleable.SeekbarSetting_titleTextColor,
-            getColor(context, R.color.text_title)
+            getColor(context, R.color.color_SettingViews_text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
             R.styleable.SeekbarSetting_descriptionTextColor,
-            getColor(context, R.color.text_description)
+            getColor(context, R.color.color_SettingViews_text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }

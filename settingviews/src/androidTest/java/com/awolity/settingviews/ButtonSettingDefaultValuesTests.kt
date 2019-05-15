@@ -41,7 +41,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_title)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_title,
+                    R.color.color_SettingViews_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -53,7 +53,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_desc)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_description,
+                    R.color.color_SettingViews_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -84,7 +84,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_title)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_disabled,
+                    R.color.color_SettingViews_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -97,7 +97,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_desc)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.text_disabled,
+                    R.color.color_SettingViews_text_disabled,
                     activityRule.activity.resources
                 )
             )

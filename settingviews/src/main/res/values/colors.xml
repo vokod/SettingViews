@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#9E9E9E</color>
-    <color name="primary_dark">#616161</color>
-    <color name="accent">#00BCD4</color>
+    <color name="SettingViews_mockActivity_primary">#9E9E9E</color>
+    <color name="SettingViews_mockActivity_primary_dark">#616161</color>
+    <color name="SettingViews_mockActivity_accent">#00BCD4</color>
 
-    <color name="text_description">@android:color/secondary_text_light</color>
-    <color name="text_disabled">@android:color/tertiary_text_light</color>
-    <color name="text_title">@android:color/primary_text_light</color>
+    <color name="color_SettingViews_text_description">@android:color/secondary_text_light</color>
+    <color name="color_SettingViews_text_disabled">@android:color/tertiary_text_light</color>
+    <color name="color_SettingViews_text_title">@android:color/primary_text_light</color>
 
-    <color name="test_text_title">#FF0000</color>
-    <color name="test_text_description">#00FF00</color>
-    <color name="test_text_disabled">#0000FF</color>
-    <color name="test_text_radiobutton_label">#00ffFF</color>
+    <color name="color_SettingViews_test_text_title">#FF0000</color>
+    <color name="color_SettingViews_test_text_description">#00FF00</color>
+    <color name="color_SettingViews_test_text_disabled">#0000FF</color>
+    <color name="color_SettingViews_test_text_radiobutton_label">#00ffFF</color>
 </resources>

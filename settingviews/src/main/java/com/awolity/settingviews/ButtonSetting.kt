@@ -12,7 +12,6 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.getColor
 
@@ -92,18 +91,18 @@ class ButtonSetting @JvmOverloads constructor(
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
             R.styleable.ButtonSetting_disabledColor,
-            getColor(context, R.color.text_disabled)
+            getColor(context, R.color.color_SettingViews_text_disabled)
         )
 
         titleTextColor = a.getColor(
             R.styleable.ButtonSetting_titleTextColor,
-            getColor(context, R.color.text_title)
+            getColor(context, R.color.color_SettingViews_text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
             R.styleable.ButtonSetting_descriptionTextColor,
-            getColor(context, R.color.text_description)
+            getColor(context, R.color.color_SettingViews_text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }

@@ -2,9 +2,9 @@
 com.awolity.SettingViews.
     <style name="SettingViews_MockAppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimary">@color/SettingViews_mockActivity_primary</item>
+        <item name="colorPrimaryDark">@color/SettingViews_mockActivity_primary_dark</item>
+        <item name="colorAccent">@color/SettingViews_mockActivity_accent</item>
     </style>
 
     <style name="SettingViews_SettingIcon">
@@ -13,12 +13,12 @@ com.awolity.SettingViews.
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:contentDescription">@string/button_setting_icon_content_description</item>
+        <item name="android:contentDescription">@string/SettingViews_button_setting_icon_content_description</item>
     </style>
 
     <style name="SettingViews_SettingTitle" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/text_description</item>
+        <item name="android:textColor">@color/color_SettingViews_text_description</item>
         <item name="android:textStyle">normal</item>
         <item name="android:typeface">sans</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -46,7 +46,7 @@ com.awolity.SettingViews.
 
     <style name="SettingViews_SettingDescription" parent="@style/SettingViews_SettingTitle">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/text_description</item>
+        <item name="android:textColor">@color/color_SettingViews_text_description</item>
         <item name="android:textStyle">normal</item>
         <item name="android:typeface">sans</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -57,7 +57,7 @@ com.awolity.SettingViews.
     </style>
 
     <style name="SettingViews_SettingButtonCheckmark" parent="@style/SettingViews_SettingIcon">
-        <item name="android:contentDescription">@string/button_setting_checkmark_content_description</item>
+        <item name="android:contentDescription">@string/SettingViews_button_setting_checkmark_content_description</item>
         <item name="android:layout_marginEnd">24dp</item>
         <item name="android:layout_marginStart">16dp</item>
     </style>

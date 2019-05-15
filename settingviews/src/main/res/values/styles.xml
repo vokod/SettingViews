@@ -1,13 +1,13 @@
 <resources>
-
-    <style name="SettingViewsMockAppTheme" parent="Theme.AppCompat.Light">
+com.awolity.SettingViews.
+    <style name="SettingViews_MockAppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
     </style>
 
-    <style name="SettingIcon">
+    <style name="SettingViews_SettingIcon">
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:layout_marginBottom">16dp</item>
@@ -16,7 +16,7 @@
         <item name="android:contentDescription">@string/button_setting_icon_content_description</item>
     </style>
 
-    <style name="SettingTitle" parent="@android:style/TextAppearance.Medium">
+    <style name="SettingViews_SettingTitle" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/text_description</item>
         <item name="android:textStyle">normal</item>
@@ -29,7 +29,7 @@
         <item name="android:layout_marginBottom">4dp</item>
     </style>
 
-    <style name="SettingGroupTitle" parent="@android:style/TextAppearance.Large">
+    <style name="SettingViews_SettingGroupTitle" parent="@android:style/TextAppearance.Large">
         <item name="android:layout_marginStart">72dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -37,14 +37,14 @@
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
-    <style name="SettingGroupDivider">
+    <style name="SettingViews_SettingGroupDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">16dp</item>
     </style>
 
-    <style name="SettingDescription" parent="@style/SettingTitle">
+    <style name="SettingViews_SettingDescription" parent="@style/SettingViews_SettingTitle">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text_description</item>
         <item name="android:textStyle">normal</item>
@@ -56,7 +56,7 @@
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
-    <style name="SettingButtonCheckmark" parent="@style/SettingIcon">
+    <style name="SettingViews_SettingButtonCheckmark" parent="@style/SettingViews_SettingIcon">
         <item name="android:contentDescription">@string/button_setting_checkmark_content_description</item>
         <item name="android:layout_marginEnd">24dp</item>
         <item name="android:layout_marginStart">16dp</item>

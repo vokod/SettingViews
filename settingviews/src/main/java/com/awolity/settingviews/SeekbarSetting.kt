@@ -29,7 +29,7 @@ class SeekbarSetting @JvmOverloads constructor(
     private var descriptionTextColor: Int = 0
     private var iconResource: Int = 0
 
-   init {
+    init {
         inflate()
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.SeekbarSetting, 0, 0)
         try {
@@ -150,6 +150,7 @@ class SeekbarSetting @JvmOverloads constructor(
         if (position > max) {
             throw IllegalArgumentException(exceptionText)
         }
+        seekBar!!.max = max
         seekBar!!.progress = position
     }
 

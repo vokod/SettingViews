@@ -31,7 +31,7 @@ class SeekbarSetting @JvmOverloads constructor(
 
     init {
         inflate()
-        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.SeekbarSetting, 0, 0)
+        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.sv_SeekbarSetting, 0, 0)
         try {
             setColorsFromAttributes(a)
             setIconFromAttributes(a)
@@ -44,7 +44,7 @@ class SeekbarSetting @JvmOverloads constructor(
 
     private fun inflate() {
         isSaveEnabled = true
-        LayoutInflater.from(context).inflate(R.layout.setting_seekbar, this, true)
+        LayoutInflater.from(context).inflate(R.layout.sv_setting_seekbar, this, true)
         titleTextView = findViewById(R.id.tv_title)
         descriptionTextView = findViewById(R.id.tv_desc)
         iconImageView = findViewById(R.id.iv_icon)
@@ -53,44 +53,44 @@ class SeekbarSetting @JvmOverloads constructor(
 
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
-            R.styleable.SeekbarSetting_disabledColor,
-            getColor(context, R.color.color_SettingViews_text_disabled)
+            R.styleable.sv_SeekbarSetting_sv_disabledColor,
+            getColor(context, R.color.sv_color_text_disabled)
         )
 
         titleTextColor = a.getColor(
-            R.styleable.SeekbarSetting_titleTextColor,
-            getColor(context, R.color.color_SettingViews_text_title)
+            R.styleable.sv_SeekbarSetting_sv_titleTextColor,
+            getColor(context, R.color.sv_color_text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
-            R.styleable.SeekbarSetting_descriptionTextColor,
-            getColor(context, R.color.color_SettingViews_text_description)
+            R.styleable.sv_SeekbarSetting_sv_descriptionTextColor,
+            getColor(context, R.color.sv_color_text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }
 
     private fun setIconFromAttributes(a: TypedArray) {
         val iconResource = a.getResourceId(
-            R.styleable.SeekbarSetting_iconDrawableResource,
-            R.drawable.ic_android
+            R.styleable.sv_SeekbarSetting_sv_iconDrawableResource,
+            R.drawable.sv_ic_android
         )
         setIcon(iconResource)
     }
 
     private fun setLabelsFromAttributes(a: TypedArray) {
-        val label = a.getString(R.styleable.SeekbarSetting_titleText)
+        val label = a.getString(R.styleable.sv_SeekbarSetting_sv_titleText)
         if (label != null) {
             titleTextView!!.text = label
         }
 
-        val description = a.getString(R.styleable.SeekbarSetting_descriptionText)
+        val description = a.getString(R.styleable.sv_SeekbarSetting_sv_descriptionText)
         setDescription(description)
     }
 
     private fun setSeekBarFromAttributes(a: TypedArray) {
-        val max = a.getInt(R.styleable.SeekbarSetting_seekbarMax, 100)
-        val position = a.getInt(R.styleable.SeekbarSetting_seekbarProgress, 0)
+        val max = a.getInt(R.styleable.sv_SeekbarSetting_sv_seekbarMax, 100)
+        val position = a.getInt(R.styleable.sv_SeekbarSetting_sv_seekbarProgress, 0)
         setSeekBar(max, position)
     }
 

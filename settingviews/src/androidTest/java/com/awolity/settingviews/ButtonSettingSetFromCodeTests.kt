@@ -11,7 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.awolity.settingviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_defaults_bs.*
+import kotlinx.android.synthetic.main.sv_activity_mock_defaults_bs.*
 import org.hamcrest.CoreMatchers.not
 
 // TODO: checkable teszt (ha chekable, akkor a checkable-iv-nek kell a hely
@@ -25,7 +25,7 @@ class ButtonSettingSetFromCodeTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_defaults_bs
+        MockActivity.layout = R.layout.sv_activity_mock_defaults_bs
         restartActivity()
     }
 
@@ -43,7 +43,7 @@ class ButtonSettingSetFromCodeTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -56,7 +56,7 @@ class ButtonSettingSetFromCodeTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -78,7 +78,7 @@ class ButtonSettingSetFromCodeTests {
             activityRule.activity.bs.isEnabled = false
             activityRule.activity.bs.isEnabled = true
         }
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.color_SettingViews_text_title, activityRule.activity.resources)))
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.sv_color_text_title, activityRule.activity.resources)))
     }
 
     @Test
@@ -90,7 +90,7 @@ class ButtonSettingSetFromCodeTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_text_description,
+                    R.color.sv_color_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -111,20 +111,20 @@ class ButtonSettingSetFromCodeTests {
 
     @Test
     fun setIcon_lookIcon() {
-        activityRule.runOnUiThread { activityRule.activity.bs.setIcon(R.drawable.test_ic_android) }
-        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.test_ic_android)))
+        activityRule.runOnUiThread { activityRule.activity.bs.setIcon(R.drawable.sv_test_ic_android) }
+        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.sv_test_ic_android)))
     }
 
     @Test
     fun setTitleColor_lookTitleColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.bs.setTitleTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_title))
+            activityRule.activity.bs.setTitleTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_title))
             activityRule.activity.bs.setTitle(title)
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_title,
+                    R.color.sv_color_test_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -134,13 +134,13 @@ class ButtonSettingSetFromCodeTests {
     @Test
     fun setDescriptionColor_lookDescriptionColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.bs.setDescriptionTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_description))
+            activityRule.activity.bs.setDescriptionTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_description))
             activityRule.activity.bs.setDescription(description)
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_description,
+                    R.color.sv_color_test_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -152,12 +152,12 @@ class ButtonSettingSetFromCodeTests {
         activityRule.runOnUiThread {
             activityRule.activity.bs.setTitle(title)
             activityRule.activity.bs.isEnabled = false
-            activityRule.activity.bs.setDisabledTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_disabled))
+            activityRule.activity.bs.setDisabledTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_disabled))
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_disabled,
+                    R.color.sv_color_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -167,14 +167,14 @@ class ButtonSettingSetFromCodeTests {
     @Test
     fun setDisabledColorDescription_lookDisabledColorDescription() {
         activityRule.runOnUiThread {
-            activityRule.activity.bs.setDisabledTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_disabled))
+            activityRule.activity.bs.setDisabledTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_disabled))
             activityRule.activity.bs.isEnabled = false
             activityRule.activity.bs.setDescription(description)
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_disabled,
+                    R.color.sv_color_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -276,8 +276,8 @@ class ButtonSettingSetFromCodeTests {
 
     @Test
     fun setCheckmarkIcon_looksChekmarkIcon() {
-        activityRule.runOnUiThread { activityRule.activity.bs.setCheckmarkIcon(R.drawable.test_ic_check_red) }
-        onView(withId(R.id.iv_checkmark)).check(matches(DrawableMatcher.withDrawable(R.drawable.test_ic_check_red)))
+        activityRule.runOnUiThread { activityRule.activity.bs.setCheckmarkIcon(R.drawable.sv_test_ic_check_red) }
+        onView(withId(R.id.iv_checkmark)).check(matches(DrawableMatcher.withDrawable(R.drawable.sv_test_ic_check_red)))
     }
 
     private fun restartActivity() {

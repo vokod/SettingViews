@@ -6,7 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import kotlinx.android.synthetic.main.activity_mock_defaults_rs.*
+import kotlinx.android.synthetic.main.sv_activity_mock_defaults_rs.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -21,7 +21,7 @@ class RadiogroupSettingDefaultValuesTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_defaults_rs
+        MockActivity.layout = R.layout.sv_activity_mock_defaults_rs
         restartActivity()
     }
 
@@ -50,7 +50,7 @@ class RadiogroupSettingDefaultValuesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_title,
+                    R.color.sv_color_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -62,7 +62,7 @@ class RadiogroupSettingDefaultValuesTests {
         onView(withId(R.id.rb_one)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_description,
+                    R.color.sv_color_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -92,7 +92,7 @@ class RadiogroupSettingDefaultValuesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_description,
+                    R.color.sv_color_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -102,7 +102,7 @@ class RadiogroupSettingDefaultValuesTests {
     @Test
     fun testDefaultIcon() {
         onView(withId(R.id.iv_icon))
-            .check(matches(DrawableMatcher.withDrawable(R.drawable.ic_android)))
+            .check(matches(DrawableMatcher.withDrawable(R.drawable.sv_ic_android)))
     }
 
     @Test
@@ -111,7 +111,7 @@ class RadiogroupSettingDefaultValuesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -124,7 +124,7 @@ class RadiogroupSettingDefaultValuesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )

@@ -23,7 +23,7 @@ class ButtonSetting @JvmOverloads constructor(
 
     init {
         inflate()
-        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.ButtonSetting, 0, 0)
+        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.sv_ButtonSetting, 0, 0)
         try {
             setColorsFromAttributes(a)
             setIconsFromAttributes(a)
@@ -79,7 +79,7 @@ class ButtonSetting @JvmOverloads constructor(
 
     private fun inflate() {
         isSaveEnabled = true
-        LayoutInflater.from(context).inflate(R.layout.setting_button, this, true)
+        LayoutInflater.from(context).inflate(R.layout.sv_setting_button, this, true)
         titleTextView = findViewById(R.id.tv_title)
         descriptionTextView = findViewById(R.id.tv_desc)
         iconImageView = findViewById(R.id.iv_icon)
@@ -90,42 +90,42 @@ class ButtonSetting @JvmOverloads constructor(
 
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
-            R.styleable.ButtonSetting_disabledColor,
-            getColor(context, R.color.color_SettingViews_text_disabled)
+            R.styleable.sv_ButtonSetting_sv_disabledColor,
+            getColor(context, R.color.sv_color_text_disabled)
         )
 
         titleTextColor = a.getColor(
-            R.styleable.ButtonSetting_titleTextColor,
-            getColor(context, R.color.color_SettingViews_text_title)
+            R.styleable.sv_ButtonSetting_sv_titleTextColor,
+            getColor(context, R.color.sv_color_text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
-            R.styleable.ButtonSetting_descriptionTextColor,
-            getColor(context, R.color.color_SettingViews_text_description)
+            R.styleable.sv_ButtonSetting_sv_descriptionTextColor,
+            getColor(context, R.color.sv_color_text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }
 
     private fun setIconsFromAttributes(a: TypedArray) {
         val iconResource = a.getResourceId(
-            R.styleable.ButtonSetting_iconDrawableResource,
-            R.drawable.ic_android
+            R.styleable.sv_ButtonSetting_sv_iconDrawableResource,
+            R.drawable.sv_ic_android
         )
         setIcon(iconResource)
 
-        checkable = a.getBoolean(R.styleable.ButtonSetting_isCheckable, false)
+        checkable = a.getBoolean(R.styleable.sv_ButtonSetting_sv_isCheckable, false)
         val checkmarkIconResource = a.getResourceId(
-            R.styleable.ButtonSetting_checkmarkDrawableResource,
-            R.drawable.ic_check_black
+            R.styleable.sv_ButtonSetting_sv_checkmarkDrawableResource,
+            R.drawable.sv_ic_check_black
         )
         setCheckmark(checkable, checkmarkIconResource)
     }
 
     private fun setCheckableFromAttributes(a: TypedArray) {
-        checkable = a.getBoolean(R.styleable.ButtonSetting_isCheckable, false)
+        checkable = a.getBoolean(R.styleable.sv_ButtonSetting_sv_isCheckable, false)
         if (checkable) {
-            checked = a.getBoolean(R.styleable.ButtonSetting_checked, false)
+            checked = a.getBoolean(R.styleable.sv_ButtonSetting_sv_checked, false)
         }
     }
 
@@ -139,12 +139,12 @@ class ButtonSetting @JvmOverloads constructor(
     }
 
     private fun setLabelsFromAttributes(a: TypedArray) {
-        val label = a.getString(R.styleable.ButtonSetting_titleText)
+        val label = a.getString(R.styleable.sv_ButtonSetting_sv_titleText)
         if (label != null) {
             titleTextView!!.text = label
         }
 
-        val description = a.getString(R.styleable.ButtonSetting_descriptionText)
+        val description = a.getString(R.styleable.sv_ButtonSetting_sv_descriptionText)
         setDescription(description)
     }
 

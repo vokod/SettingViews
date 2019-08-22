@@ -7,7 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.awolity.settingviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_defaults_ses.*
+import kotlinx.android.synthetic.main.sv_activity_mock_defaults_ses.*
 import org.hamcrest.Matchers.not
 import org.junit.Before
 import org.junit.Rule
@@ -25,7 +25,7 @@ class SeekbarSettingSetFromCodeTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_defaults_ses
+        MockActivity.layout = R.layout.sv_activity_mock_defaults_ses
         restartActivity()
     }
 
@@ -43,7 +43,7 @@ class SeekbarSettingSetFromCodeTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -56,7 +56,7 @@ class SeekbarSettingSetFromCodeTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -86,7 +86,7 @@ class SeekbarSettingSetFromCodeTests {
             activityRule.activity.ses.isEnabled = false
             activityRule.activity.ses.isEnabled = true
         }
-        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.color_SettingViews_text_title, activityRule.activity.resources)))
+        onView(withId(R.id.tv_title)).check(matches(withTextColor(R.color.sv_color_text_title, activityRule.activity.resources)))
     }
 
     @Test
@@ -98,7 +98,7 @@ class SeekbarSettingSetFromCodeTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_text_description,
+                    R.color.sv_color_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -119,20 +119,20 @@ class SeekbarSettingSetFromCodeTests {
 
     @Test
     fun setIcon_lookIcon() {
-        activityRule.runOnUiThread { activityRule.activity.ses.setIcon(R.drawable.test_ic_android) }
-        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.test_ic_android)))
+        activityRule.runOnUiThread { activityRule.activity.ses.setIcon(R.drawable.sv_test_ic_android) }
+        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.sv_test_ic_android)))
     }
 
     @Test
     fun setTitleColor_lookTitleColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.ses.setTitleTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_title))
+            activityRule.activity.ses.setTitleTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_title))
             activityRule.activity.ses.setTitle(title)
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_title,
+                    R.color.sv_color_test_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -142,12 +142,12 @@ class SeekbarSettingSetFromCodeTests {
     @Test
     fun setDescriptionColor_lookDescriptionColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.ses.setDescriptionTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_description))
+            activityRule.activity.ses.setDescriptionTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_description))
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_description,
+                    R.color.sv_color_test_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -159,12 +159,12 @@ class SeekbarSettingSetFromCodeTests {
         activityRule.runOnUiThread {
             activityRule.activity.ses.setTitle(title)
             activityRule.activity.ses.isEnabled = false
-            activityRule.activity.ses.setDisabledTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_disabled))
+            activityRule.activity.ses.setDisabledTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_disabled))
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_disabled,
+                    R.color.sv_color_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -174,14 +174,14 @@ class SeekbarSettingSetFromCodeTests {
     @Test
     fun setDisabledColorDescription_lookDisabledColorDescription() {
         activityRule.runOnUiThread {
-            activityRule.activity.ses.setDisabledTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_disabled))
+            activityRule.activity.ses.setDisabledTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_disabled))
             activityRule.activity.ses.isEnabled = false
             activityRule.activity.ses.setDescription(description)
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_disabled,
+                    R.color.sv_color_test_text_disabled,
                     activityRule.activity.resources
                 )
             )

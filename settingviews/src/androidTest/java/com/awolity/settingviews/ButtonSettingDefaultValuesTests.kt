@@ -6,7 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import kotlinx.android.synthetic.main.activity_mock_defaults_bs.*
+import kotlinx.android.synthetic.main.sv_activity_mock_defaults_bs.*
 import org.hamcrest.CoreMatchers
 import org.junit.Before
 import org.junit.Rule
@@ -22,7 +22,7 @@ class ButtonSettingDefaultValuesTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_defaults_bs
+        MockActivity.layout = R.layout.sv_activity_mock_defaults_bs
         restartActivity()
     }
 
@@ -41,7 +41,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_title)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_title,
+                    R.color.sv_color_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -53,7 +53,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_desc)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_description,
+                    R.color.sv_color_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -63,13 +63,13 @@ class ButtonSettingDefaultValuesTests {
     @Test
     fun testDefaultIcon() {
         Espresso.onView(ViewMatchers.withId(R.id.iv_icon))
-            .check(ViewAssertions.matches(DrawableMatcher.withDrawable(R.drawable.ic_android)))
+            .check(ViewAssertions.matches(DrawableMatcher.withDrawable(R.drawable.sv_ic_android)))
     }
 
     @Test
     fun testDefaultCheckmarkIcon() {
         Espresso.onView(ViewMatchers.withId(R.id.iv_checkmark))
-            .check(ViewAssertions.matches(DrawableMatcher.withDrawable(R.drawable.ic_check_black)))
+            .check(ViewAssertions.matches(DrawableMatcher.withDrawable(R.drawable.sv_ic_check_black)))
     }
 
     @Test
@@ -84,7 +84,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_title)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -97,7 +97,7 @@ class ButtonSettingDefaultValuesTests {
         Espresso.onView(ViewMatchers.withId(R.id.tv_desc)).check(
             ViewAssertions.matches(
                 TextColorMatcher.withTextColor(
-                    R.color.color_SettingViews_text_disabled,
+                    R.color.sv_color_text_disabled,
                     activityRule.activity.resources
                 )
             )

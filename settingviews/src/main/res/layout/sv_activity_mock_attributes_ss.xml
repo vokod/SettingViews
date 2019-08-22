@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.awolity.settingviews.SwitchSetting
+            android:id="@+id/ss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:sv_titleText="@string/sv_test_title"
+            custom:sv_descriptionText="@string/sv_test_description"
+            custom:sv_iconDrawableResource="@drawable/sv_test_ic_android"
+            custom:sv_disabledColor="@color/sv_color_test_text_disabled"
+            custom:sv_titleTextColor="@color/sv_color_test_text_title"
+            custom:sv_descriptionTextColor="@color/sv_color_test_text_description"
+            custom:sv_checkmarkDrawableResource="@drawable/sv_test_ic_check_red"
+            custom:sv_checked="true"/>
+
+</LinearLayout>

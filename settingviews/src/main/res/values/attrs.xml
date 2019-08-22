@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="iconDrawableResource" format="reference"/>
-    <attr name="disabledColor" format="color"/>
-    <attr name="titleText" format="string" localization="suggested"/>
-    <attr name="titleTextColor" format="color"/>
-    <attr name="descriptionText" format="string" localization="suggested"/>
-    <attr name="descriptionTextColor" format="color"/>
-    <attr name="checked" format="boolean"/>
+    <attr name="sv_iconDrawableResource" format="reference"/>
+    <attr name="sv_disabledColor" format="color"/>
+    <attr name="sv_titleText" format="string" localization="suggested"/>
+    <attr name="sv_titleTextColor" format="color"/>
+    <attr name="sv_descriptionText" format="string" localization="suggested"/>
+    <attr name="sv_descriptionTextColor" format="color"/>
+    <attr name="sv_checked" format="boolean"/>
 
-    <declare-styleable name="ButtonSetting">
-        <attr name="iconDrawableResource"/>
-        <attr name="disabledColor"/>
-        <attr name="titleText"/>
-        <attr name="titleTextColor"/>
-        <attr name="descriptionText"/>
-        <attr name="descriptionTextColor"/>
-        <attr name="isCheckable" format="boolean"/>
-        <attr name="checked"/>
-        <attr name="checkmarkDrawableResource" format="reference"/>
+    <declare-styleable name="sv_ButtonSetting">
+        <attr name="sv_iconDrawableResource"/>
+        <attr name="sv_disabledColor"/>
+        <attr name="sv_titleText"/>
+        <attr name="sv_titleTextColor"/>
+        <attr name="sv_descriptionText"/>
+        <attr name="sv_descriptionTextColor"/>
+        <attr name="sv_isCheckable" format="boolean"/>
+        <attr name="sv_checked"/>
+        <attr name="sv_checkmarkDrawableResource" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="SwitchSetting">
-        <attr name="iconDrawableResource"/>
-        <attr name="disabledColor"/>
-        <attr name="titleText"/>
-        <attr name="titleTextColor"/>
-        <attr name="descriptionText"/>
-        <attr name="descriptionTextColor"/>
-        <attr name="checked"/>
+    <declare-styleable name="sv_SwitchSetting">
+        <attr name="sv_iconDrawableResource"/>
+        <attr name="sv_disabledColor"/>
+        <attr name="sv_titleText"/>
+        <attr name="sv_titleTextColor"/>
+        <attr name="sv_descriptionText"/>
+        <attr name="sv_descriptionTextColor"/>
+        <attr name="sv_checked"/>
     </declare-styleable>
 
-    <declare-styleable name="RadiogroupSetting">
-        <attr name="iconDrawableResource"/>
-        <attr name="disabledColor"/>
-        <attr name="titleText"/>
-        <attr name="titleTextColor"/>
-        <attr name="descriptionText"/>
-        <attr name="descriptionTextColor"/>
-        <attr name="selected" format="integer"/>
-        <attr name="radioButtonLabelTextColor" format="color"/>
-        <attr name="firstRadioButtonText" format="string" localization="suggested"/>
-        <attr name="secondRadioButtonText" format="string" localization="suggested"/>
+    <declare-styleable name="sv_RadiogroupSetting">
+        <attr name="sv_iconDrawableResource"/>
+        <attr name="sv_disabledColor"/>
+        <attr name="sv_titleText"/>
+        <attr name="sv_titleTextColor"/>
+        <attr name="sv_descriptionText"/>
+        <attr name="sv_descriptionTextColor"/>
+        <attr name="sv_selected" format="integer"/>
+        <attr name="sv_radioButtonLabelTextColor" format="color"/>
+        <attr name="sv_firstRadioButtonText" format="string" localization="suggested"/>
+        <attr name="sv_secondRadioButtonText" format="string" localization="suggested"/>
     </declare-styleable>
 
-    <declare-styleable name="SeekbarSetting">
-        <attr name="iconDrawableResource"/>
-        <attr name="disabledColor"/>
-        <attr name="titleText"/>
-        <attr name="titleTextColor"/>
-        <attr name="descriptionText"/>
-        <attr name="descriptionTextColor"/>
-        <attr name="seekbarMax" format="integer"/>
-        <attr name="seekbarProgress" format="integer"/>
+    <declare-styleable name="sv_SeekbarSetting">
+        <attr name="sv_iconDrawableResource"/>
+        <attr name="sv_disabledColor"/>
+        <attr name="sv_titleText"/>
+        <attr name="sv_titleTextColor"/>
+        <attr name="sv_descriptionText"/>
+        <attr name="sv_descriptionTextColor"/>
+        <attr name="sv_seekbarMax" format="integer"/>
+        <attr name="sv_seekbarProgress" format="integer"/>
     </declare-styleable>
 </resources>
 

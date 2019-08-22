@@ -36,7 +36,7 @@ class SwitchSetting @JvmOverloads constructor(
 
  init {
         inflate()
-        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.SwitchSetting, 0, 0)
+        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.sv_SwitchSetting, 0, 0)
         try {
             setColorsFromAttributes(a)
             setIconFromAttributes(a)
@@ -49,7 +49,7 @@ class SwitchSetting @JvmOverloads constructor(
 
     private fun inflate() {
         isSaveEnabled = true
-        LayoutInflater.from(context).inflate(R.layout.setting_switch, this, true)
+        LayoutInflater.from(context).inflate(R.layout.sv_setting_switch, this, true)
         titleTextView = findViewById(R.id.tv_title)
         descriptionTextView = findViewById(R.id.tv_desc)
         iconImageView = findViewById(R.id.iv_icon)
@@ -58,42 +58,42 @@ class SwitchSetting @JvmOverloads constructor(
 
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
-            R.styleable.SwitchSetting_disabledColor,
-            getColor(context, R.color.color_SettingViews_text_disabled)
+            R.styleable.sv_SwitchSetting_sv_disabledColor,
+            getColor(context, R.color.sv_color_text_disabled)
         )
         titleTextColor = a.getColor(
-            R.styleable.SwitchSetting_titleTextColor,
-            getColor(context, R.color.color_SettingViews_text_title)
+            R.styleable.sv_SwitchSetting_sv_titleTextColor,
+            getColor(context, R.color.sv_color_text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
-            R.styleable.SwitchSetting_descriptionTextColor,
-            getColor(context, R.color.color_SettingViews_text_description)
+            R.styleable.sv_SwitchSetting_sv_descriptionTextColor,
+            getColor(context, R.color.sv_color_text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
     }
 
     private fun setIconFromAttributes(a: TypedArray) {
         val iconResource = a.getResourceId(
-            R.styleable.SwitchSetting_iconDrawableResource,
-            R.drawable.ic_android
+            R.styleable.sv_SwitchSetting_sv_iconDrawableResource,
+            R.drawable.sv_ic_android
         )
         setIcon(iconResource)
     }
 
     private fun setLabelsFromAttributes(a: TypedArray) {
-        val label = a.getString(R.styleable.SwitchSetting_titleText)
+        val label = a.getString(R.styleable.sv_SwitchSetting_sv_titleText)
         if (label != null) {
             titleTextView!!.text = label
         }
 
-        val description = a.getString(R.styleable.SwitchSetting_descriptionText)
+        val description = a.getString(R.styleable.sv_SwitchSetting_sv_descriptionText)
         setDescription(description)
     }
 
     private fun setSwitchFromAttributes(a: TypedArray) {
-        checked = a.getBoolean(R.styleable.SwitchSetting_checked, false)
+        checked = a.getBoolean(R.styleable.sv_SwitchSetting_sv_checked, false)
     }
 
     fun setTitle(titleText: String) {

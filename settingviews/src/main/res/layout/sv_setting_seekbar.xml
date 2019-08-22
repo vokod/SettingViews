@@ -8,22 +8,22 @@
 
     <ImageView
             android:id="@+id/iv_icon"
-            style="@style/SettingViews_SettingIcon"
+            style="@style/sv_SettingIcon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_android"/>
+            tools:src="@drawable/sv_ic_android"/>
 
     <TextView
             android:id="@+id/tv_title"
-            style="@style/SettingViews_SettingTitle"
+            style="@style/sv_SettingTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="title textview"/>
 
     <TextView
             android:id="@+id/tv_desc"
-            style="@style/SettingViews_SettingDescription"
+            style="@style/sv_SettingDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"

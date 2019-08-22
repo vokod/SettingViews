@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="SettingViews_test_seekbar_max">200</integer>
-    <integer name="SettingViews_test_seekbar_progress">99</integer>
+    <integer name="sv_test_seekbar_max">200</integer>
+    <integer name="sv_test_seekbar_progress">99</integer>
 </resources>

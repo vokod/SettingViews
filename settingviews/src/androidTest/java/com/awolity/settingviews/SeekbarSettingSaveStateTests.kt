@@ -12,7 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.awolity.settingviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_defaults_ses.*
+import kotlinx.android.synthetic.main.sv_activity_mock_defaults_ses.*
 
 @RunWith(AndroidJUnit4::class)
 class SeekbarSettingSaveStateTests {
@@ -23,7 +23,7 @@ class SeekbarSettingSaveStateTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_defaults_ses
+        MockActivity.layout = R.layout.sv_activity_mock_defaults_ses
         restartActivity()
     }
 
@@ -39,13 +39,13 @@ class SeekbarSettingSaveStateTests {
     @Test
     fun setTitleColor_Rotate_lookTitleColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.ses.setTitleTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_title))
+            activityRule.activity.ses.setTitleTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_title))
             rotate()
         }
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_title,
+                    R.color.sv_color_test_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -64,13 +64,13 @@ class SeekbarSettingSaveStateTests {
     @Test
     fun setDescriptionColor_Rotate_lookDescriptionColor() {
         activityRule.runOnUiThread {
-            activityRule.activity.ses.setDescriptionTextColor(activityRule.activity.getColor(R.color.color_SettingViews_test_text_description))
+            activityRule.activity.ses.setDescriptionTextColor(activityRule.activity.getColor(R.color.sv_color_test_text_description))
             rotate()
         }
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_description,
+                    R.color.sv_color_test_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -89,10 +89,10 @@ class SeekbarSettingSaveStateTests {
     @Test
     fun setIcon_Rotate_lookIcon() {
         activityRule.runOnUiThread {
-            activityRule.activity.ses.setIcon(R.drawable.test_ic_android)
+            activityRule.activity.ses.setIcon(R.drawable.sv_test_ic_android)
             rotate()
         }
-        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.test_ic_android)))
+        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.sv_test_ic_android)))
     }
 
     @Test

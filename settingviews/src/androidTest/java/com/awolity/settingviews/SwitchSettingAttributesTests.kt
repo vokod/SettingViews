@@ -7,7 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.awolity.settingviews.TextColorMatcher.withTextColor
-import kotlinx.android.synthetic.main.activity_mock_attributes_ss.*
+import kotlinx.android.synthetic.main.sv_activity_mock_attributes_ss.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -22,18 +22,18 @@ class SwitchSettingAttributesTests {
 
     @Before
     fun setup() {
-        MockActivity.layout = R.layout.activity_mock_attributes_ss
+        MockActivity.layout = R.layout.sv_activity_mock_attributes_ss
         restartActivity()
     }
 
     @Test
     fun test_titleText_SetFromAttributes() {
-        onView(withId(R.id.tv_title)).check(matches(withText(R.string.SettingViews_test_title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(R.string.sv_test_title)))
     }
 
     @Test
     fun test_Description_TextSetFromAttributes() {
-        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.SettingViews_test_description)))
+        onView(withId(R.id.tv_desc)).check(matches(withText(R.string.sv_test_description)))
     }
 
     @Test
@@ -41,7 +41,7 @@ class SwitchSettingAttributesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_title,
+                    R.color.sv_color_test_text_title,
                     activityRule.activity.resources
                 )
             )
@@ -53,7 +53,7 @@ class SwitchSettingAttributesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_description,
+                    R.color.sv_color_test_text_description,
                     activityRule.activity.resources
                 )
             )
@@ -66,7 +66,7 @@ class SwitchSettingAttributesTests {
         onView(withId(R.id.tv_title)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_disabled,
+                    R.color.sv_color_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -79,7 +79,7 @@ class SwitchSettingAttributesTests {
         onView(withId(R.id.tv_desc)).check(
             matches(
                 withTextColor(
-                    R.color.color_SettingViews_test_text_disabled,
+                    R.color.sv_color_test_text_disabled,
                     activityRule.activity.resources
                 )
             )
@@ -88,7 +88,7 @@ class SwitchSettingAttributesTests {
 
     @Test
     fun test_Icon_SetFromAttributes() {
-        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.test_ic_android)))
+        onView(withId(R.id.iv_icon)).check(matches(DrawableMatcher.withDrawable(R.drawable.sv_test_ic_android)))
     }
 
     @Test

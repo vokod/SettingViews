@@ -7,20 +7,20 @@
 
     <ImageView
             android:id="@+id/iv_icon"
-            style="@style/SettingViews_SettingIcon"
+            style="@style/sv_SettingIcon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
             android:id="@+id/tv_title"
-            style="@style/SettingViews_SettingTitle"
+            style="@style/sv_SettingTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
             android:id="@+id/tv_desc"
-            style="@style/SettingViews_SettingDescription"
+            style="@style/sv_SettingDescription"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/iv_checkmark"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,8 +28,8 @@
 
     <ImageView
             android:id="@+id/iv_checkmark"
-            style="@style/SettingViews_SettingButtonCheckmark"
-            android:src="@drawable/ic_check_black"
+            style="@style/sv_SettingButtonCheckmark"
+            android:src="@drawable/sv_ic_check_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_desc"

@@ -21,7 +21,7 @@ class RadiogroupSetting @JvmOverloads constructor(
 
     init {
         inflate()
-        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.RadiogroupSetting, 0, 0)
+        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.sv_RadiogroupSetting, 0, 0)
         try {
             setColorsFromAttributes(a)
             setIconFromAttributes(a)
@@ -45,7 +45,7 @@ class RadiogroupSetting @JvmOverloads constructor(
 
     private fun inflate() {
         isSaveEnabled = true
-        LayoutInflater.from(context).inflate(R.layout.setting_radiogroup, this, true)
+        LayoutInflater.from(context).inflate(R.layout.sv_setting_radiogroup, this, true)
         titleTextView = findViewById(R.id.tv_title)
         descriptionTextView = findViewById(R.id.tv_desc)
         iconImageView = findViewById(R.id.iv_icon)
@@ -55,53 +55,53 @@ class RadiogroupSetting @JvmOverloads constructor(
 
     private fun setColorsFromAttributes(a: TypedArray) {
         disabledTextColor = a.getColor(
-            R.styleable.RadiogroupSetting_disabledColor,
-            getColor(context, R.color.color_SettingViews_text_disabled)
+            R.styleable.sv_RadiogroupSetting_sv_disabledColor,
+            getColor(context, R.color.sv_color_text_disabled)
         )
 
         titleTextColor = a.getColor(
-            R.styleable.RadiogroupSetting_titleTextColor,
-            getColor(context, R.color.color_SettingViews_text_title)
+            R.styleable.sv_RadiogroupSetting_sv_titleTextColor,
+            getColor(context, R.color.sv_color_text_title)
         )
         titleTextView!!.setTextColor(titleTextColor)
 
         descriptionTextColor = a.getColor(
-            R.styleable.RadiogroupSetting_descriptionTextColor,
-            getColor(context, R.color.color_SettingViews_text_description)
+            R.styleable.sv_RadiogroupSetting_sv_descriptionTextColor,
+            getColor(context, R.color.sv_color_text_description)
         )
         descriptionTextView!!.setTextColor(descriptionTextColor)
 
         radioButtonLabelTextColor = a.getColor(
-            R.styleable.RadiogroupSetting_radioButtonLabelTextColor,
-            getColor(context, R.color.color_SettingViews_text_description)
+            R.styleable.sv_RadiogroupSetting_sv_radioButtonLabelTextColor,
+            getColor(context, R.color.sv_color_text_description)
         )
         setRadioButtonLabelColor(radioButtonLabelTextColor)
     }
 
     private fun setIconFromAttributes(a: TypedArray) {
         val iconResource = a.getResourceId(
-            R.styleable.RadiogroupSetting_iconDrawableResource,
-            R.drawable.ic_android
+            R.styleable.sv_RadiogroupSetting_sv_iconDrawableResource,
+            R.drawable.sv_ic_android
         )
         setIcon(iconResource)
     }
 
     private fun setLabelsFromAttributes(a: TypedArray) {
-        val label = a.getString(R.styleable.RadiogroupSetting_titleText)
+        val label = a.getString(R.styleable.sv_RadiogroupSetting_sv_titleText)
         if (label != null) {
             titleTextView!!.text = label
         }
 
-        val description = a.getString(R.styleable.RadiogroupSetting_descriptionText)
+        val description = a.getString(R.styleable.sv_RadiogroupSetting_sv_descriptionText)
         setDescription(description)
 
-        val labelFirstRadioButtonLabel = a.getString(R.styleable.RadiogroupSetting_firstRadioButtonText)
-        val labelSecondRadioButtonLabel = a.getString(R.styleable.RadiogroupSetting_secondRadioButtonText)
+        val labelFirstRadioButtonLabel = a.getString(R.styleable.sv_RadiogroupSetting_sv_firstRadioButtonText)
+        val labelSecondRadioButtonLabel = a.getString(R.styleable.sv_RadiogroupSetting_sv_secondRadioButtonText)
         setRadioButtonsLabel(labelFirstRadioButtonLabel, labelSecondRadioButtonLabel)
     }
 
     private fun setSelectedRadiobuttonFromAttributes(a:TypedArray){
-        val selectedButton = a.getInt(R.styleable.RadiogroupSetting_selected, 0)
+        val selectedButton = a.getInt(R.styleable.sv_RadiogroupSetting_sv_selected, 0)
         setSelectedRadioButton(selectedButton)
     }
 
@@ -155,7 +155,7 @@ class RadiogroupSetting @JvmOverloads constructor(
             firstButton!!.isChecked = false
             secondButton!!.isChecked = true
         } else {
-            throw IllegalArgumentException(context.getString(R.string.SettingViews_radiogroup_setting_illegal_selected))
+            throw IllegalArgumentException(context.getString(R.string.sv_radiogroup_setting_illegal_selected))
         }
     }
 

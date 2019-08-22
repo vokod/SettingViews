@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/vokod/SettingViews.svg)](https://jitpack.io/#vokod/SettingViews)
+[![](https://jitpack.io/v/vokod/SettingViews.svg)](https://jitpack.io/#vokod/SettingViews) [![](https://jitci.com/gh/vokod/SettingViews/svg)](https://jitci.com/gh/vokod/SettingViews)
 
 # SettingViews
 Android compound views for managing settings
